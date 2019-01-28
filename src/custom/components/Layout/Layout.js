@@ -42,7 +42,10 @@ class Layout extends Component {
         <div className={classes.root}>
           <Header shop={shop} viewer={viewer} />
           <main className={classes.main}>
-            <article className={classes.article}>{children}</article>
+            <article className={classes.article}>
+              <h1>Test Header!!!</h1>
+              {children}
+            </article>
           </main>
           <Footer />
         </div>

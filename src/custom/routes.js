@@ -3,9 +3,13 @@
  * @param {Object} routes The next-routes `routes` object.
  * @returns {undefined}
  */
+
+    //
+
 function defineRoutes(routes) {
   routes
-    .add("home", "/", "productGrid")
+    .add("home", "/", "home")
+    .add("products", "/products", "productGrid")
     .add("cart", "/cart", "cart")
     .add("checkout", "/cart/checkout", "checkout")
     .add("checkoutLogin", "/cart/login", "checkout")
