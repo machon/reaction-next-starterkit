@@ -1,8 +1,9 @@
 // Created by Andre Machon 28/01/2019
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import HomePageFeatured from "custom/components/HomePageFeatured"
 
 const styles = (theme) => ({
   homepage: {
@@ -23,9 +24,12 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <Typography >
+      <Typography>
+
         <div className="homepage">
           <h1>This is the Homepage!!!</h1>
+          <HomePageFeatured/>
+
           <p>This is our placeholder text</p>
         </div>
       </Typography>
