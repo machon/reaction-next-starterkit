@@ -57,6 +57,17 @@ import StockWarning from "@reactioncommerce/components/StockWarning/v1";
 import StripeForm from "@reactioncommerce/components/StripeForm/v1";
 import TextInput from "@reactioncommerce/components/TextInput/v1";
 import withLocales from "../lib/utils/withLocales";
+// import { MediaUploader } from "../../../reaction/imports/plugins/core/ui/client/components";
+
+import iconDismiss from "@reactioncommerce/components/svg/iconDismiss";
+import iconExpand from "@reactioncommerce/components/svg/iconExpand";
+import iconPlus from "@reactioncommerce/components/svg/iconPlus";
+import Accordion from "@reactioncommerce/components/Accordion/v1";
+import AccordionFormList from "@reactioncommerce/components/AccordionFormList/v1";
+import AddressBook from "@reactioncommerce/components/AddressBook/v1";
+import InPageMenuItem from "@reactioncommerce/components/InPageMenuItem/v1";
+import MultiSelect from "@reactioncommerce/components/MultiSelect/v1";
+
 
 // Providing locales data
 const AddressFormWithLocales = withLocales(AddressForm);

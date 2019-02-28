@@ -15,16 +15,18 @@ const styles = (theme) => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    paddingBottom: 40,
+    paddingTop: 40
   }
 });
 
 @inject("navItems")
 @withStyles(styles, {name: "SkCategoryTileGrid"})
-class CategoryTileGrid extends Component {
+export default class CategoryTileGrid extends Component {
   static propTypes = {
     classes: PropTypes.object,
     navItems: PropTypes.array
-  };
+  };0
 
   static defaultProps = {
     classes: {},
@@ -40,13 +42,14 @@ class CategoryTileGrid extends Component {
     return (
       <Grid container spacing={16} className={classes.grid}>
         {navItems.map((navItem, index) => (
-            <Grid item xs={12} md={6} lg={4} key={index}>
-              <Paper className={classes.paper}>navItem.node.name</Paper>
+            <Grid item xs={12} md={6} lg={6} key={index}>
+              <Paper className={classes.paper}>
+                <img src={navItem.node.heroMediaUrl}/>
+                <label>{navItem.node.name}</label>
+              </Paper>
             </Grid>
           ))}
       </Grid>
     );
   }
 }
-
-export default CategoryTileGrid;

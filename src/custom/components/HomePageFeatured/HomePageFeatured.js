@@ -30,8 +30,8 @@ class HomePageFeatured extends Component {
                    style={{border: "1px solid black", width: "350px"}}>
                 <div className="featured-product-title">
                   {/*{product.product.title}*/}
-                  <a href={`/product/${product.product.slug}`}><img src={product.product.media[0].URLs.small} alt="product-image"/></a></div>
-                  <p>{JSON.stringify(product)}</p>
+                  <a href={`/product/${product.product.slug}`}><img src={product.product.media[0].URLs.medium} alt="product-image"/></a></div>
+                  {/*<p>{JSON.stringify(product)}</p>*/}
               </div>
             )
           }
