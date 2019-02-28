@@ -11,6 +11,8 @@ query featuredQuery($shopId: ID!) {
             URLs {
               thumbnail
               small
+              medium
+              large
             }
           }
         }
