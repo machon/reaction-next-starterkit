@@ -26,7 +26,7 @@ export default class CategoryTileGrid extends Component {
   static propTypes = {
     classes: PropTypes.object,
     navItems: PropTypes.array
-  };0
+  };
 
   static defaultProps = {
     classes: {},
