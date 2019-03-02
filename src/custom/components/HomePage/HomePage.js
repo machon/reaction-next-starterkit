@@ -1,12 +1,11 @@
 // Created by Andre Machon 28/01/2019
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import { withComponents } from "@reactioncommerce/components-context";
+import {withStyles} from "@material-ui/core/styles";
+import {withComponents} from "@reactioncommerce/components-context";
 import Typography from "@material-ui/core/Typography";
 import HomePageFeatured from "custom/components/HomePageFeatured";
 import CategoryTileGrid from "custom/components/CategoryTileGrid";
-
 
 
 const styles = (theme) => ({
@@ -23,7 +22,8 @@ const styles = (theme) => ({
 });
 
 @withComponents
-class HomePage extends React.Component {
+@withStyles(styles)
+export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,32 +34,37 @@ class HomePage extends React.Component {
   }
 
   onBtnClick = () => {
-    this.setState({ isWaiting: true }); setTimeout(() => { this.setState({ isWaiting: false }); }, 3000);
+    this.setState({isWaiting: true});
+    setTimeout(() => {
+      this.setState({isWaiting: false});
+    }, 3000);
   };
 
   render() {
 
-    const { classes, components: { Button, MediaUploader } } = this.props;
+    const {classes, components: {Button}} = this.props;
 
     return (
-      <Typography>
+      <div className="homepage">
+        <h1>This is the Homepage!!!</h1>
+        <CategoryTileGrid/>
 
-        <div className="homepage">
-          <h1>This is the Homepage!!!</h1>
-          {/*<MediaUploader />*/}
-          <CategoryTileGrid/>
-
-          <Button
-            title="Default"
-            className="myBtn"
-            isWaiting={this.state.isWaiting}
-            onClick={this.onBtnClick}
-          >My Own Reaction Button!</Button>
-          {/*<HomePageFeatured/>*/}
-
-          <p className={classes.text}>This is our placeholder text</p>
-        </div>
-      </Typography>
+        <Button
+          title="Default"
+          className="myBtn"
+          isWaiting={this.state.isWaiting}
+          onClick={this.onBtnClick}
+        >Default Reaction Button!</Button>
+        <p className={classes.text}>This is our placeholder text</p>
+        <Button
+          title="Secondary"
+          actionType="secondary"
+          className="myBtn"
+          isWaiting={this.state.isWaiting}
+          onClick={this.onBtnClick}
+        >Secondary Reaction Button!</Button>
+        {/*<HomePageFeatured/>*/}
+      </div>
     );
   }
 }
@@ -71,8 +76,7 @@ HomePage.propTypes = {
      * Use Reaction Design System Button
      */
     Button: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    MediaUploader: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-  }).isRequired
+  })
 };
 
-export default withStyles(styles)(HomePage);
+// export default withStyles(styles)(HomePage);

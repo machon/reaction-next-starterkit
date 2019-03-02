@@ -5,10 +5,37 @@
  * Any variables you define here will override the default value for that
  * variable, but will not impact any other default variables (i.e., you are
  * extending the default theme object, and not overwriting it).
+ * https://designsystem.reactioncommerce.com/#!/Theming%20Components
  */
 
 export default {
-  // This is an example. Uncomment this line to change the color of all buttons with the "important" action type.
-  // Go to /cart with an empty cart to see this change on the "Continue shopping" button
-  // rui_buttonBackgroundColor_important: "#20427B"
+  rui_typography: {
+    bodyText: {
+      color: "#5acc25"
+    },
+    labelText: {
+      color: "#5acc25"
+    },
+    labelTextBold: {
+      color: "#5acc25"
+    }
+  },
+
+  rui_components: {
+    Button: {
+      backgroundColor_default: "#5acc25",
+      backgroundColor_default_active: "#129a00",
+      backgroundColor_default_hover: "#91ff5c",
+      borderColor_default: "#5acc25",
+      borderColor_default_active: "#129a00",
+      borderColor_default_hover: "#91ff5c",
+      
+      backgroundColor_secondary: "#ff67a9",
+      backgroundColor_secondary_active: "#c8317a",
+      backgroundColor_secondary_hover: "#ff9adb",
+      borderColor_secondary: "#ff67a9",
+      borderColor_secondary_active: "#c8317a",
+      borderColor_secondary_hover: "#ff9adb",
+    }
+  }
 };

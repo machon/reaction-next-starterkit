@@ -11,20 +11,19 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: "#26B0F9",
-      main: "#1999DD",
-      dark: "#172F3C",
+      light: "#91ff5c",
+      main: "#5acc25",
+      dark: "#129a00",
       contrastText: "#FFFFFF"
     },
     secondary: {
-      light: "#5d8ea9",
-      main: "#5E7480",
-      dark: "#1D1D1D",
+      light: "#ff9adb",
+      main: "#ff67a9",
+      dark: "#c8317a",
       contrastText: "#000000"
     },
     background: {
       default: "#ffffff"
-      // default: "#ff2525"
     },
     error: {
       light: "#E54F5D",
@@ -43,10 +42,10 @@ const theme = createMuiTheme({
       default: "1px solid #e6e6e6"
     },
     reaction: {
-      activeElementBorderColor: "#94E8D1",
+      activeElementBorderColor: "#aed581",
       activeElementBackground: "#E6E6E6",
       badges: {
-        bestseller: "#8CE0C9",
+        bestseller: "#aed581",
         sale: "#E54F5D"
       },
       borderColor: "#CCCCCC",
