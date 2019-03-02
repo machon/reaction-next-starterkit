@@ -36,6 +36,7 @@ export default {
       borderColor_secondary: "#ff67a9",
       borderColor_secondary_active: "#c8317a",
       borderColor_secondary_hover: "#ff9adb",
+      foregroundColor_secondary: "#fff"
     }
   }
 };
