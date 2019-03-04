@@ -10,15 +10,15 @@
 
 export default {
   rui_typography: {
-    bodyText: {
-      color: "#5acc25"
-    },
-    labelText: {
-      color: "#5acc25"
-    },
-    labelTextBold: {
-      color: "#5acc25"
-    }
+    // bodyText: {
+    //   color: "#5acc25"
+    // },
+    // labelText: {
+    //   color: "#5acc25"
+    // },
+    // labelTextBold: {
+    //   color: "#5acc25"
+    // }
   },
 
   rui_components: {
@@ -29,6 +29,7 @@ export default {
       borderColor_default: "#5acc25",
       borderColor_default_active: "#129a00",
       borderColor_default_hover: "#91ff5c",
+      foregroundColor_default_hover : "#3c3c3c",
       
       backgroundColor_secondary: "#ff67a9",
       backgroundColor_secondary_active: "#c8317a",

@@ -6,6 +6,7 @@ import {withComponents} from "@reactioncommerce/components-context";
 import Typography from "@material-ui/core/Typography";
 import HomePageFeatured from "custom/components/HomePageFeatured";
 import CategoryTileGrid from "custom/components/CategoryTileGrid";
+import Grid from "@material-ui/core/Grid";
 
 
 const styles = (theme) => ({
@@ -46,24 +47,51 @@ export default class HomePage extends React.Component {
 
     return (
       <div className="homepage">
-        <h1>This is the Homepage!!!</h1>
-        <CategoryTileGrid/>
+        <Grid container spacing={24}>
 
-        <Button
-          title="Default"
-          className="myBtn"
-          isWaiting={this.state.isWaiting}
-          onClick={this.onBtnClick}
-        >Default Reaction Button!</Button>
-        <p className={classes.text}>This is our placeholder text</p>
-        <Button
-          title="Secondary"
-          actionType="secondary"
-          className="myBtn"
-          isWaiting={this.state.isWaiting}
-          onClick={this.onBtnClick}
-        >Secondary Reaction Button!</Button>
-        {/*<HomePageFeatured/>*/}
+          <Grid item xs={12}>
+            <div style={{width: "100%", height: "500px", backgroundColor: "#5acc25", "align-items": "center"}} >
+              <Typography variant="headline" align="center">
+                Header Image goes here
+              </Typography>
+            </div>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography variant="headline" align="center" gutterBottom>
+              View all the beautiful Products at the Anton&Sophie Webstore!
+            </Typography>
+          </Grid>
+
+
+          <Grid item xs={12}>
+
+            <CategoryTileGrid/>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Button
+              title="Default"
+              className="myBtn"
+              isWaiting={this.state.isWaiting}
+              onClick={this.onBtnClick}
+            >Default Reaction Button!</Button>
+          </Grid>
+
+
+          <Grid item xs={12}>
+            <Button
+              title="Secondary"
+              actionType="secondary"
+              className="myBtn"
+              isWaiting={this.state.isWaiting}
+              onClick={this.onBtnClick}
+            >Secondary Reaction Button!</Button>
+          </Grid>
+
+
+          {/*<HomePageFeatured/>*/}
+        </Grid>
       </div>
     );
   }
