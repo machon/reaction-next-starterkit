@@ -5,6 +5,14 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
+  overrides: {
+    SkHeader: {
+      title: {
+        color: "#91ff5c",
+        borderBottom: `solid 5px #91ff5c`,
+      },
+    },
+  },
   layout: {
     mainContentMaxWidth: "1440px",
     mainLoginMaxWidth: "1024px"
@@ -42,10 +50,10 @@ const theme = createMuiTheme({
       default: "1px solid #e6e6e6"
     },
     reaction: {
-      activeElementBorderColor: "#aed581",
+      activeElementBorderColor: "#91ff5c",
       activeElementBackground: "#E6E6E6",
       badges: {
-        bestseller: "#aed581",
+        bestseller: "#91ff5c",
         sale: "#E54F5D"
       },
       borderColor: "#CCCCCC",
