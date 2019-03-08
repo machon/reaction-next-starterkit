@@ -7,12 +7,27 @@ import { createMuiTheme } from "@material-ui/core/styles";
 const theme = createMuiTheme({
   overrides: {
     SkHeader: {
+      appBar: {
+        // backgroundColor: "#91ff5c"
+      },
       title: {
         color: "#91ff5c",
         borderBottom: `solid 5px #91ff5c`,
       },
     },
+
+    SkFooter: {
+      footer: {
+        borderTop: "5px solid #ff67a9",
+        minHeight: "15vh",
+        backgroundColor: "#5acc25",
+        marginBottom: "0",
+        // boxShadow: "0 0 15px #129a00",
+
+      }
+    },
   },
+
   layout: {
     mainContentMaxWidth: "1440px",
     mainLoginMaxWidth: "1024px"

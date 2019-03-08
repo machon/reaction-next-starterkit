@@ -4,8 +4,10 @@ import PropTypes from "prop-types";
 import {inject} from "mobx-react"
 import Grid from "@material-ui/core/Grid";
 import {withStyles} from "@material-ui/core/styles";
-import {withComponents} from "@reactioncommerce/components-context";
+import { withComponents } from "@reactioncommerce/components-context";
+import SharedPropTypes from "lib/utils/SharedPropTypes";
 import Typography from "@material-ui/core/Typography";
+// import withTag from "containers/tags/withTag";
 
 
 const styles = (theme) => ({
@@ -29,12 +31,14 @@ const styles = (theme) => ({
 
 });
 
+// @withTag
 @inject("navItems", "routingStore")
 @withStyles(styles, {name: "SkCategoryTileGrid"})
 @withComponents
 export default class CategoryTileGrid extends Component {
   static propTypes = {
     classes: PropTypes.object,
+    tag: SharedPropTypes.tag,
     navItems: PropTypes.array,
     components: PropTypes.shape({
       // ProgressiveImage: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
@@ -66,21 +70,20 @@ export default class CategoryTileGrid extends Component {
     return (
       <React.Fragment>
         <Grid container spacing={24} className={classes.grid}>
-          {navItems.map((navItem, index) => (
-            <Grid item xs={12} md={6} lg={4} key={index} style={{"margin-bottom": "10px"}}>
+          {navItems.map((navItem, index) => {
+            return navItem.node.heroMediaUrl ? (
+            <Grid item xs={12} md={6} lg={4} key={index} style={{marginBottom: "10px"}}>
 
               <Link route={`${this.linkPath(navItem)}`}>
                 <div className={classes.overflowDiv}>
                   <img src={navItem.node.heroMediaUrl} className={classes.heroImg}/>
                 </div>
-                <Typography inline={true} align="center" variant='title'>
+                <Typography inline="true" align="center" variant='title'>
                   <label style={{"text-decoration": "underline"}}>{navItem.node.slug}</label>
                 </Typography>
               </Link>
-
-
             </Grid>
-          ))}
+          ) : null })}
         </Grid>
       </React.Fragment>
     );

@@ -1,8 +1,8 @@
 // Created by Andre Machon 28/01/2019
 import React from "react";
 import PropTypes from "prop-types";
-import {withStyles} from "@material-ui/core/styles";
-import {withComponents} from "@reactioncommerce/components-context";
+import { withStyles } from "@material-ui/core/styles";
+import { withComponents } from "@reactioncommerce/components-context";
 import Typography from "@material-ui/core/Typography";
 import HomePageFeatured from "custom/components/HomePageFeatured";
 import CategoryTileGrid from "custom/components/CategoryTileGrid";
@@ -19,6 +19,16 @@ const styles = (theme) => ({
 
   text: {
     fontSize: 28
+  },
+
+  headlineDiv: {
+    width: "100%",
+    height: "auto",
+    padding: "10px",
+    // background: "#ff9adb",
+    // boxShadow: "-2px 3px 5px #ff67a9",
+    // border: "solid 2px #ff9adb",
+
   }
 });
 
@@ -35,22 +45,22 @@ export default class HomePage extends React.Component {
   }
 
   onBtnClick = () => {
-    this.setState({isWaiting: true});
+    this.setState({ isWaiting: true });
     setTimeout(() => {
-      this.setState({isWaiting: false});
+      this.setState({ isWaiting: false });
     }, 3000);
   };
 
   render() {
 
-    const {classes, components: {Button}} = this.props;
+    const { classes, components: { Button } } = this.props;
 
     return (
       <div className="homepage">
         <Grid container spacing={24}>
 
           <Grid item xs={12}>
-            <div style={{width: "100%", height: "500px", backgroundColor: "#5acc25", "align-items": "center"}} >
+            <div style={{ width: "100%", height: "500px", backgroundColor: "#5acc25", "align-items": "center" }}>
               <Typography variant="headline" align="center">
                 Header Image goes here
               </Typography>
@@ -58,9 +68,11 @@ export default class HomePage extends React.Component {
           </Grid>
 
           <Grid item xs={12}>
-            <Typography variant="headline" align="center" gutterBottom>
-              View all the beautiful Products at the Anton&Sophie Webstore!
-            </Typography>
+            <div className={classes.headlineDiv}>
+              <Typography variant="headline" align="center">
+                <h1 style={{color: "#ff67a9"}}>View all the beautiful Products at the Anton&Sophie Webstore!</h1>
+              </Typography>
+            </div>
           </Grid>
 
 
