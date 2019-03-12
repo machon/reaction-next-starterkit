@@ -1,9 +1,9 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
+import { isEqual } from "lodash";
 import { observer } from "mobx-react";
 import styled from "styled-components";
-import isEqual from "lodash.isequal";
 import Actions from "@reactioncommerce/components/CheckoutActions/v1";
 import ShippingAddressCheckoutAction from "@reactioncommerce/components/ShippingAddressCheckoutAction/v1";
 import FulfillmentOptionsCheckoutAction from "@reactioncommerce/components/FulfillmentOptionsCheckoutAction/v1";
@@ -320,10 +320,11 @@ export default class CheckoutActions extends Component {
     const [fulfillmentGroup] = fulfillmentGroups;
 
     // Order summary
-    const { fulfillmentTotal, itemTotal, taxTotal, total } = summary;
+    const { fulfillmentTotal, itemTotal, surchargeTotal, taxTotal, total } = summary;
     const checkoutSummary = {
       displayShipping: fulfillmentTotal && fulfillmentTotal.displayAmount,
       displaySubtotal: itemTotal.displayAmount,
+      displaySurcharge: surchargeTotal.displayAmount,
       displayTotal: total.displayAmount,
       displayTax: taxTotal && taxTotal.displayAmount,
       items

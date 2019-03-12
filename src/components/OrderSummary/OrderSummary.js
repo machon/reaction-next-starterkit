@@ -62,6 +62,7 @@ class OrderSummary extends Component {
       const {
         fulfillmentTotal,
         itemTotal,
+        surchargeTotal,
         taxTotal,
         total
       } = fulfillmentGroup.summary;
@@ -72,6 +73,7 @@ class OrderSummary extends Component {
             isDense
             displayShipping={fulfillmentTotal && fulfillmentTotal.displayAmount}
             displaySubtotal={itemTotal && itemTotal.displayAmount}
+            displaySurcharge={surchargeTotal && surchargeTotal.displayAmount}
             displayTax={taxTotal && taxTotal.displayAmount}
             displayTotal={total && total.displayAmount}
           />
@@ -90,7 +92,7 @@ class OrderSummary extends Component {
         <div className={classes.header}>
           <Grid container spacing={24}>
             <Grid item xs={3}>
-              <Typography className={classes.subtitle2} variant="subheading">{"Payment Method"}</Typography>
+              <Typography className={classes.subtitle2} variant="subtitle1">{"Payment Method"}</Typography>
             </Grid>
             <Grid item>
               {(payments || []).map((payment) => (
