@@ -39,7 +39,7 @@ const styles = (theme) => ({
 export default class CategoryTileGrid extends Component {
   static propTypes = {
     classes: PropTypes.object,
-    tags: PropTypes.isArray,
+    // tags: PropTypes.isArray,
     components: PropTypes.shape({
       Link: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     })
@@ -58,7 +58,7 @@ export default class CategoryTileGrid extends Component {
         <Grid container spacing={24} className={classes.grid}>
           {tags.map((tag, index) => {
             return tag.heroMediaUrl ? (
-              <Grid xs={12} md={6} lg={4} key={index} style={{ marginBottom: "10px", textAlign: "center",}}>
+              <Grid item xs={12} md={6} lg={4} key={index} style={{ marginBottom: "10px", textAlign: "center",}}>
                 <Link route={`/tag/${tag.slug}`} >
                   <div className={classes.overflowDiv}>
                     <img src={tag.heroMediaUrl} className={classes.heroImg}/>

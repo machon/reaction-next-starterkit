@@ -12,7 +12,7 @@ import AccountDropdown from "components/AccountDropdown";
 import ShopLogo from "@reactioncommerce/components/ShopLogo/v1";
 import Link from "components/Link";
 import MiniCart from "components/MiniCart";
-import NavigationDesktopCustom from 'custom/components/custom-render-functions/NavigationDesktopCustom';
+import NavigationRenderCustom from 'custom/components/custom-render-functions/NavigationRenderCustom';
 
 const styles = (theme) => ({
   appBar: {
@@ -78,7 +78,7 @@ class Header extends Component {
 
             <Hidden smDown initialWidth={"md"}>
               <NavigationDesktop
-                render={NavigationDesktopCustom.render}
+                render={NavigationRenderCustom.renderDesktopNav}
                 filter={'headerItem'}
               />
             </Hidden>
@@ -87,7 +87,7 @@ class Header extends Component {
           <AccountDropdown />
           <MiniCart />
         </Toolbar>
-        <NavigationMobile />
+        <NavigationMobile filter={'headerItem'}/>
       </AppBar>
     );
   }

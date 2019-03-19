@@ -58,6 +58,7 @@ class NavigationMobile extends Component {
   static propTypes = {
     classes: PropTypes.object,
     navItems: PropTypes.object,
+    filter: PropTypes.string,
     shop: PropTypes.shape({
       name: PropTypes.string
     }),
@@ -85,14 +86,23 @@ class NavigationMobile extends Component {
     this.setState({ navItem: null });
   }
 
-  renderNavItem = (navItem, index) => (
-    <NavigationItemMobile
-      key={index}
-      isTopLevel
-      navItem={navItem}
-      onClick={this.handleNavItemClick}
-    />
-  );
+  renderNavItem = (navItem, index) => {
+    if (this.props.filter) {
+      if (navItem.navigationItem.data.classNames.split(' ').includes(this.props.filter)) return <NavigationItemMobile
+        key={index}
+        isTopLevel
+        navItem={navItem}
+        onClick={this.handleNavItemClick}
+      />;
+    } else {
+      return <NavigationItemMobile
+        key={index}
+        isTopLevel
+        navItem={navItem}
+        onClick={this.handleNavItemClick}
+      />;
+    }
+  };
 
   handleClose = () => {
     this.handleCloseSubMenu();
@@ -100,7 +110,11 @@ class NavigationMobile extends Component {
   };
 
   render() {
-    const { classes, navItems, uiStore, shop } = this.props;
+    const { classes, navItems, uiStore, shop, filter } = this.props;
+
+    // if(filter) {
+    //   return <h1>{filter}</h1>
+    // }
 
     if (navItems && navItems.items) {
       return (

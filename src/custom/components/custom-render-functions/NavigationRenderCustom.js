@@ -1,5 +1,6 @@
 // Created by Andre Machon 19/03/2019
 import { NavigationItemDesktop } from "components/NavigationDesktop";
+import { NavigationItemMobile } from "components/NavigationMobile";
 
 /**
  * If a filter is passed this function only renders
@@ -9,11 +10,11 @@ import { NavigationItemDesktop } from "components/NavigationDesktop";
  * @param filter
  * @returns {NavigationItemDesktop} React Navigation Component
  */
-function renderNavItem(navItem, index, filter = null) {
+function renderNavItemDesktop(navItem, index, filter = null) {
   if (filter) {
     // console.log();
     if (navItem.navigationItem.data.classNames.split(' ').includes(filter)) return <NavigationItemDesktop key={index}
-                                                                                         navItem={navItem}/>;
+                                                                                                          navItem={navItem}/>;
   } else {
     return <NavigationItemDesktop key={index} navItem={navItem}/>;
   }
@@ -25,19 +26,21 @@ export default {
    * @param props
    * @returns {*}
    */
-  render(props) {
+  renderDesktopNav(props) {
     const { navItems, filter } = props;
 
     if (navItems && navItems.items) {
       return <nav>{navItems.items.map(
-        (navItem, index) => {
-          return renderNavItem(navItem, index, filter);
-        }
+        (navItem, index) => renderNavItemDesktop(navItem, index, filter)
       )}</nav>;
     }
 
     // If navItems.items aren't available, skip rendering of navigation
     return null;
-  }
+  },
+
+  // renderMobileNavMenuList(props) {
+  //   props.navItems.items.map((navItem, index) => renderNavItemMobile(navItem, index, props.filter));
+  // }
 
 };

@@ -60,7 +60,7 @@ export default class HomePage extends React.Component {
         <Grid container spacing={24}>
 
           <Grid item xs={12}>
-            <div style={{ width: "100%", height: "500px", backgroundColor: "#5acc25", "align-items": "center" }}>
+            <div style={{ width: "100%", height: "500px", backgroundColor: "#5acc25", alignItems: "center" }}>
               <Typography variant="headline" align="center">
                 Header Image goes here
               </Typography>

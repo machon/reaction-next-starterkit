@@ -5,9 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { NavigationMobile, NavigationToggleMobile } from "components/NavigationMobile";
 import { NavigationDesktop } from "components/NavigationDesktop";
 import Hidden from "@material-ui/core/Hidden";
-import NavigationDesktopCustom from 'custom/components/custom-render-functions/NavigationDesktopCustom';
-import Link from "components/Link";
-import ShopLogo from "@reactioncommerce/components/ShopLogo/v1";
+import NavigationRenderCustom from 'custom/components/custom-render-functions/NavigationRenderCustom';
 
 const date = new Date();
 
@@ -35,22 +33,13 @@ const Footer = ({ ...props }) => (
   <footer className={props.classes.footer}>
     <Typography variant="caption">
       &copy; {date.getFullYear()} Reaction Commerce
-      <div className={props.classes.controls}>
-        {/*<Typography className={props.classes.title} color="inherit" variant="h6">*/}
-        {/*<Link route="/">*/}
-        {/*<ShopLogo shopName={props.shop.name}/>*/}
-        {/*</Link>*/}
-        {/*</Typography>*/}
 
-        <Hidden smDown initialWidth={"md"}>
+      <div className={props.classes.controls}>
           <NavigationDesktop
-            render={NavigationDesktopCustom.render}
+            render={NavigationRenderCustom.renderDesktopNav}
             filter={'footerItem'}
           />
-        </Hidden>
       </div>
-
-      <NavigationMobile/>
     </Typography>
   </footer>
 );
