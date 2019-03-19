@@ -16,6 +16,8 @@ const theme = createMuiTheme({
       },
     },
 
+    
+
     SkFooter: {
       footer: {
         borderTop: "5px solid #ff67a9",

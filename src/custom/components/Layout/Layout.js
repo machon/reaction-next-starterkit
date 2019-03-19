@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Header from "components/Header";
-import Footer from "components/Footer";
+// import Footer from "components/Footer";
+import Footer from "custom/components/Footer";
 
 const styles = (theme) => ({
   root: {
@@ -12,7 +13,8 @@ const styles = (theme) => ({
     flex: "1 1 auto",
     maxWidth: theme.layout.mainContentMaxWidth,
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
+    minHeight: "78.3vh",
   },
   article: {
     padding: theme.spacing.unit * 3
