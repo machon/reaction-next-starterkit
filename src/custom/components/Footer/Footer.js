@@ -19,12 +19,8 @@ const styles = (theme) => ({
   controls: {
     alignItems: "inherit",
     display: "inherit",
-    flex: 1
-  },
-  title: {
-    color: theme.palette.reaction.reactionBlue,
-    marginRight: theme.spacing.unit,
-    borderBottom: `solid 5px ${theme.palette.reaction.reactionBlue200}`
+    flex: 1,
+    textAlign: "center"
   },
 });
 
@@ -32,13 +28,12 @@ const styles = (theme) => ({
 const Footer = ({ ...props }) => (
   <footer className={props.classes.footer}>
     <Typography variant="caption">
-      &copy; {date.getFullYear()} Reaction Commerce
-
       <div className={props.classes.controls}>
-          <NavigationDesktop
-            render={NavigationRenderCustom.renderDesktopNav}
-            filter={'footerItem'}
-          />
+        <span>&copy; {date.getFullYear()} Reaction Commerce</span>
+        <NavigationDesktop
+          render={NavigationRenderCustom.renderDesktopNav}
+          filter={'footerItem'}
+        />
       </div>
     </Typography>
   </footer>
