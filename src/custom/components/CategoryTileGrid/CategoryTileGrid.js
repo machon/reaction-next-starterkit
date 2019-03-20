@@ -61,11 +61,8 @@ export default class CategoryTileGrid extends Component {
             if (tag.metafields) {
               tag.metafields.forEach(obj => {
                 if (obj.key === "keywords") {
-                  if (obj.value.split(' ').includes('HomePageCategory')) {
-                    mainCategory = true;
-                  } else {
-                    mainCategory = false;
-                  }
+                  // set to true if "HomepageCategory" is found among keyword values in tag.metafields
+                  mainCategory = obj.value.split(' ').includes('HomePageCategory');
                 }
               });
             }
