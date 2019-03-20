@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import HomePageFeatured from "custom/components/HomePageFeatured";
 import CategoryTileGrid from "custom/components/CategoryTileGrid";
 import Grid from "@material-ui/core/Grid";
-
+import MobileStepper from "custom/components/FeaturedCategoryStepper";
 
 const styles = (theme) => ({
   homepage: {
@@ -68,9 +68,13 @@ export default class HomePage extends React.Component {
           </Grid>
 
           <Grid item xs={12}>
+            <MobileStepper/>
+          </Grid>
+
+          <Grid item xs={12}>
             <div className={classes.headlineDiv}>
               <Typography variant="headline" align="center">
-                <h1 style={{color: "#ff67a9"}}>View all the beautiful Products at the Anton&Sophie Webstore!</h1>
+                <h1 style={{ color: "#ff67a9" }}>View all the beautiful Products at the Anton&Sophie Webstore!</h1>
               </Typography>
             </div>
           </Grid>

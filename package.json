@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "@reactioncommerce/components": "^0.64.0",
     "@reactioncommerce/components-context": "^1.2.0",
     "@segment/snippet": "^4.4.0",
@@ -75,7 +76,8 @@
     "react-tracking": "^5.6.0",
     "reacto-form": "^0.0.2",
     "styled-components": "^3.4.10",
-    "subscriptions-transport-ws": "^0.9.15"
+    "subscriptions-transport-ws": "^0.9.15",
+    "react-swipeable-views": "^0.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

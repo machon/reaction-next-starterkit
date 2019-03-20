@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { withComponents } from "@reactioncommerce/components-context";
 import SharedPropTypes from "lib/utils/SharedPropTypes";
 import Typography from "@material-ui/core/Typography";
-
+import logger from 'lib/logger';
 
 const styles = (theme) => ({
   grid: {
@@ -57,18 +57,33 @@ export default class CategoryTileGrid extends Component {
       <React.Fragment>
         <Grid container spacing={24} className={classes.grid}>
           {tags.map((tag, index) => {
-            return tag.heroMediaUrl ? (
-              <Grid item xs={12} md={6} lg={4} key={index} style={{ marginBottom: "10px", textAlign: "center",}}>
-                <Link route={`/tag/${tag.slug}`} >
-                  <div className={classes.overflowDiv}>
-                    <img src={tag.heroMediaUrl} className={classes.heroImg}/>
-                  </div>
-                  <Typography inline="true" align="center" variant='title'>
-                    <label style={{ textDecoration: "underline" }}>{tag.name}</label>
-                  </Typography>
-                </Link>
-              </Grid>
-            ) : null;
+            let mainCategory = false;
+            if (tag.metafields) {
+              tag.metafields.forEach(obj => {
+                if (obj.key === "keywords") {
+                  if (obj.value.split(' ').includes('HomePageCategory')) {
+                    mainCategory = true;
+                  } else {
+                    mainCategory = false;
+                  }
+                }
+              });
+            }
+
+            if (mainCategory) {
+              return tag.heroMediaUrl ? (
+                <Grid item xs={12} md={6} lg={4} key={index}
+                      style={{ marginBottom: "10px", textAlign: "center", }}>
+                  <Link route={`/tag/${tag.slug}`}>
+                    <div className={classes.overflowDiv}>
+                      <img src={tag.heroMediaUrl} className={classes.heroImg} alt={"Main Category"}/>
+                    </div>
+                    <Typography inline="true" align="center" variant='title'>
+                      <label style={{ textDecoration: "underline" }}>{tag.name}</label>
+                    </Typography>
+                  </Link>
+                </Grid>): null;
+            }
           })
           }
         </Grid>
