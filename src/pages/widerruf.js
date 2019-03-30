@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 
 @inject("routingStore")
 @observer
-class Wiederruf extends Component {
+class Widerruf extends Component {
   static propTypes = {
     routingStore: PropTypes.object,
     shop: PropTypes.shape({
@@ -141,4 +141,4 @@ class Wiederruf extends Component {
   }
 }
 
-export default Wiederruf;
+export default Widerruf;
