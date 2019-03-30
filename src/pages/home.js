@@ -3,7 +3,6 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { observer, inject } from "mobx-react";
 import Helmet from "react-helmet";
-
 import HomePage from "custom/components/HomePage";
 
 @inject("routingStore")

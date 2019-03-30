@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Header from "components/Header";
-// import Footer from "components/Footer";
 import Footer from "custom/components/Footer";
+import InfoListBanner from "custom/components/InfoListBanner";
 
 const styles = (theme) => ({
   root: {
@@ -42,6 +42,9 @@ class Layout extends Component {
     return (
       <React.Fragment>
         <div className={classes.root}>
+          <InfoListBanner
+            iconName="check"
+            listItems={['Gratis Versand', '30 Tage Rückgaberecht', 'Lieferzeit 2-3 Werktage']}/>
           <Header shop={shop} viewer={viewer} />
           <main className={classes.main}>
             <article className={classes.article}>

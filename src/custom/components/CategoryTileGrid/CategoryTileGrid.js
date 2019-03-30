@@ -33,7 +33,7 @@ const styles = (theme) => ({
 });
 
 // @withTag
-@inject("routingStore", "uiStore", "tags")
+@inject("routingStore", "uiStore")
 @withStyles(styles, { name: "SkCategoryTileGrid" })
 @withComponents
 export default class CategoryTileGrid extends Component {
@@ -48,28 +48,21 @@ export default class CategoryTileGrid extends Component {
   static defaultProps = {
     classes: {},
     tags: [],
+    xs: 12,
+    md: 6,
+    lg: 4,
   };
 
   render() {
-    const { classes, components: { Link }, tags } = this.props;
+    const { classes, components: { Link }, tags, xs, md, lg } = this.props;
 
     return (
       <React.Fragment>
         <Grid container spacing={12} className={classes.grid}>
           {tags.map((tag, index) => {
-            let mainCategory = false;
-            if (tag.metafields) {
-              tag.metafields.forEach(obj => {
-                if (obj.key === "keywords") {
-                  // set to true if "HomepageCategory" is found among keyword values in tag.metafields
-                  mainCategory = obj.value.split(' ').includes('HomePageCategory');
-                }
-              });
-            }
 
-            if (mainCategory) {
               return tag.heroMediaUrl ? (
-                <Grid item xs={12} md={6} lg={4} key={index}
+                <Grid item xs={xs} md={md} lg={lg} key={index}
                       style={{ marginBottom: "10px", textAlign: "center", }}>
                   <Link route={`/tag/${tag.slug}`}>
                     <div className={classes.overflowDiv}>
@@ -80,7 +73,7 @@ export default class CategoryTileGrid extends Component {
                     </Typography>
                   </Link>
                 </Grid>): null;
-            }
+
           })
           }
         </Grid>

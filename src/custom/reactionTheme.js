@@ -9,6 +9,7 @@ const theme = createMuiTheme({
     SkHeader: {
       appBar: {
         // backgroundColor: "#91ff5c"
+        borderTop: `solid 1px #f5f5f5`,
       },
       title: {
         color: "#91ff5c",

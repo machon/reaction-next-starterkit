@@ -7,7 +7,11 @@ import Typography from "@material-ui/core/Typography";
 import HomePageFeatured from "custom/components/HomePageFeatured";
 import CategoryTileGrid from "custom/components/CategoryTileGrid";
 import Grid from "@material-ui/core/Grid";
-import MobileStepper from "custom/components/FeaturedCategoryStepper";
+import FeaturedCategories from "custom/components/FeaturedCategories";
+import withTagFilter from "custom/containers/tagFilter/withTagFilter";
+
+const MainCategories = withTagFilter(CategoryTileGrid, 'keywords', 'HomePageCategory');
+// const FeatCategories = withTagFilter(FeaturedCategories, 'keywords', 'featuredCategory');
 
 const styles = (theme) => ({
   homepage: {
@@ -68,7 +72,7 @@ export default class HomePage extends React.Component {
           </Grid>
 
           <Grid item xs={12}>
-            <MobileStepper/>
+            <FeaturedCategories/>
           </Grid>
 
           <Grid item xs={12}>
@@ -82,7 +86,7 @@ export default class HomePage extends React.Component {
 
           <Grid item xs={12}>
 
-            <CategoryTileGrid/>
+            <MainCategories />
           </Grid>
 
           <Grid item xs={12}>

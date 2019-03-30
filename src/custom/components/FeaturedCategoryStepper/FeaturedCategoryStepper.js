@@ -30,7 +30,7 @@ const styles = theme => ({
     textAlign: 'center'
   },
   img: {
-    height: 255,
+    height: 355,
     display: 'inline-block',
     maxWidth: "33.333%",
     overflow: 'hidden',
@@ -43,7 +43,7 @@ const styles = theme => ({
   }
 });
 
-@inject("routingStore", "uiStore", "tags")
+@inject("routingStore", "uiStore")
 class FeaturedCategoryStepper extends React.Component {
   state = {
     activeStep: 0,
@@ -65,39 +65,14 @@ class FeaturedCategoryStepper extends React.Component {
     this.setState({ activeStep });
   };
 
-  /**
-   * getFeaturedCategoryTags
-   * @summary return filtered array of tags, based on metafields
-   * @param {string} metaFieldKey - key name of metafield object, defaults to "keywords"
-   * @param {string} metaFieldValue - value of metafield object, defaults to "featuredCategory"
-   * @returns {Array}
-   */
-  getFeaturedCategoryTags = (metaFieldKey="keywords", metaFieldValue="featuredCategory") => {
-    const { tags } = this.props;
-    const featuredTags = [];
 
-    tags.forEach(tag => {
-      if (tag.metafields) {
-        for (let i = 0; i < tag.metafields.length; i++) {
-          let obj = tag.metafields[i];
-          if (obj.key === metaFieldKey) {
-            if (obj.value.split(' ').includes(metaFieldValue)) {
-              featuredTags.push(tag);
-              break;
-            }
-          }
-        }
-      }
-    });
-    return featuredTags;
-  };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, tags } = this.props;
     const { activeStep } = this.state;
-    const featuredTags = this.getFeaturedCategoryTags();
-    const maxSteps = featuredTags.length;
-    
+    // const tags = this.getFeaturedCategoryTags();
+    const maxSteps = tags.length;
+
     return (
       <div className={classes.root}>
         <Paper square elevation={0} className={classes.header}>
@@ -110,23 +85,23 @@ class FeaturedCategoryStepper extends React.Component {
           enableMouseEvents
           interval={5000}
         >
-          {featuredTags.map((tag, index) => {
+          {tags.map((tag, index) => {
 
-            let nextTag = featuredTags[index + 1];
-            let nextTag2 = featuredTags[index + 2];
-            if (featuredTags.length <= index + 2) {
-              nextTag2 = featuredTags[0];
+            let nextTag = tags[index + 1];
+            let nextTag2 = tags[index + 2];
+            if (tags.length <= index + 2) {
+              nextTag2 = tags[0];
             }
-            if (featuredTags.length <= index + 1) {
-              nextTag = featuredTags[0];
-              nextTag2 = featuredTags[1];
-
+            if (tags.length <= index + 1) {
+              nextTag = tags[0];
+              nextTag2 = tags[1];
             }
 
             return (
-              
               <div key={tag.name}>
-                {Math.abs(activeStep - index) <= 2 ? (
+                {/* if diffecence between activestep and index in array is 2 or more */}
+                {/* Math.abs(activeStep - index) <= 2 ? (JSX Elements) : null */}
+                {(
                   <Fragment>
                     <div style={{ display: "inline", position: "relative" }}>
                       <img className={classes.img} src={tag.heroMediaUrl} alt={tag.name}/>
@@ -144,7 +119,7 @@ class FeaturedCategoryStepper extends React.Component {
                         <span className={classes.catCaption}>{nextTag2.name}</span></a>
                     </div>
                   </Fragment>
-                ) : null}
+                )}
               </div>
             );
           })}
@@ -175,7 +150,6 @@ class FeaturedCategoryStepper extends React.Component {
 FeaturedCategoryStepper.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  tags: PropTypes.object,
 };
 
 export default withStyles(styles, { withTheme: true })(FeaturedCategoryStepper);
