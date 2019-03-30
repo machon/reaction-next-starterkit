@@ -55,7 +55,7 @@ export default class CategoryTileGrid extends Component {
 
     return (
       <React.Fragment>
-        <Grid container spacing={24} className={classes.grid}>
+        <Grid container spacing={12} className={classes.grid}>
           {tags.map((tag, index) => {
             let mainCategory = false;
             if (tag.metafields) {
