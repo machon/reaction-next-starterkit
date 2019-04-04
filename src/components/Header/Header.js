@@ -16,8 +16,8 @@ import NavigationRenderCustom from 'custom/components/custom-render-functions/Na
 
 const styles = (theme) => ({
   appBar: {
-    backgroundColor: theme.palette.reaction.white,
-    borderBottom: `solid 1px ${theme.palette.reaction.black05}`,
+    // backgroundColor: theme.palette.reaction.white,
+    // borderBottom: `solid 1px ${theme.palette.reaction.black05}`,
     color: theme.palette.reaction.coolGrey500
   },
   controls: {
@@ -34,6 +34,17 @@ const styles = (theme) => ({
     alignItems: "center",
     display: "flex",
     justifyContent: "space-between"
+  },
+  logo: {
+    // '&:hover img': {
+    //   width: "150px"
+    // }
+    'img &': {
+      width: "150px"
+    }
+  },
+  myImg: {
+    width: "150px"
   }
 });
 
@@ -60,19 +71,26 @@ class Header extends Component {
   };
 
   render() {
-    const { classes: { appBar, controls, toolbar, title }, shop } = this.props;
+    const { classes: { appBar, controls, toolbar, title, logo, myImg }, shop } = this.props;
 
     return (
       <AppBar position="static" elevation={0} className={appBar}>
         <Toolbar className={toolbar}>
           <Hidden mdUp>
-            <NavigationToggleMobile onClick={this.handleNavigationToggleClick} />
+            <NavigationToggleMobile onClick={this.handleNavigationToggleClick}/>
           </Hidden>
 
           <div className={controls}>
             <Typography className={title} color="inherit" variant="h6">
               <Link route="/">
-                <ShopLogo shopName={shop.name} />
+                {/*<ShopLogo shopName={shop.name}*/}
+                          {/*// classes={{img: myImg}}*/}
+                          {/*// shopLogoUrl="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"*/}
+                {/*/>*/}
+                <img src="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"
+                     alt="Logo"
+                     style={{maxWidth: "150px"}}
+                />
               </Link>
             </Typography>
 
@@ -84,8 +102,8 @@ class Header extends Component {
             </Hidden>
           </div>
 
-          <AccountDropdown />
-          <MiniCart />
+          <AccountDropdown/>
+          <MiniCart/>
         </Toolbar>
         <NavigationMobile filter={'headerItem'}/>
       </AppBar>

@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Icon from '@material-ui/core/Icon';
 import Helmet from "react-helmet";
 import Typography from "@material-ui/core/Typography";
-
+import Hidden from '@material-ui/core/Hidden';
 
 const styles = theme => ({
   list: {
@@ -16,7 +16,7 @@ const styles = theme => ({
     justifyContent: "center"
   },
   listItem: {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.dark,
     // position: "relative"
     lineHeight: "40px",
     paddingLeft: "18px",
@@ -32,9 +32,11 @@ const styles = theme => ({
   },
   outerDiv: {
     display: "flex",
-    backgroundColor: theme.palette.reaction.teal100,
+    // backgroundColor: theme.palette.reaction.teal100,
   }
 });
+
+// TODO adjust InfoListBanner to be mobile friendly, perhaps show on medium
 
 @withStyles(styles, { name: "SkInfoListBanner" })
 class InfoListBanner extends Component {
@@ -47,20 +49,23 @@ class InfoListBanner extends Component {
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         </Helmet>
 
-        <div className={classes.outerDiv}>
-          <div className={classes.listContainer}>
-            <Typography>
-              <ul className={classes.list}>
-                {listItems.map(item => (
-                  <li className={classes.listItem}>
-                    <Icon className={classes.itemIcon}>{iconName}</Icon>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Typography>
+        <Hidden mdDown>
+          <div className={classes.outerDiv}>
+            <div className={classes.listContainer}>
+              <Typography>
+                <ul className={classes.list}>
+                  {listItems.map(item => (
+                    <li className={classes.listItem}>
+                      <Icon className={classes.itemIcon}>{iconName}</Icon>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Typography>
+            </div>
           </div>
-        </div>
+        </Hidden>
+
       </Fragment>
     );
   }

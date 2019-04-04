@@ -63,7 +63,9 @@ class HTMLDocument extends Document {
     const htmlAttrs = helmet.htmlAttributes.toComponent();
     const links = [
       { rel: "canonical", href: publicRuntimeConfig.canonicalUrl },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" },
+      // { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" },
+      // { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Arsenal:400,700|Courgette|Mallanna&amp;subset=latin-ext" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Courgette|Open+Sans:400,600,700&amp;subset=latin-ext" },
       ...favicons
     ];
     const meta = [

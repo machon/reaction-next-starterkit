@@ -11,13 +11,17 @@ const styles = (theme) => ({
   },
   main: {
     flex: "1 1 auto",
-    maxWidth: theme.layout.mainContentMaxWidth,
+    // maxWidth: theme.layout.mainContentMaxWidth,
+    width: "100%",
+    // maxWidth: "99.21vw",
     marginLeft: "auto",
     marginRight: "auto",
     minHeight: "78.3vh",
   },
   article: {
-    padding: theme.spacing.unit * 3
+    overflowY: "hidden",
+    overflowX: "hidden",
+    // padding: theme.spacing.unit * 3
   }
 });
 
@@ -38,24 +42,25 @@ class Layout extends Component {
 
   render() {
     const { classes, children, shop, viewer } = this.props;
-
     return (
       <React.Fragment>
         <div className={classes.root}>
           <InfoListBanner
             iconName="check"
-            listItems={['Gratis Versand', '30 Tage Rückgaberecht', 'Lieferzeit 2-3 Werktage']}/>
-          <Header shop={shop} viewer={viewer} />
+            listItems={['Versandkostenfrei ab 75 €', 'Versicherter Versand',
+              'Lieferzeit 2-3 Werktage', '30 Tage Rückgaberecht ']}/>
+          <Header shop={shop} viewer={viewer}/>
           <main className={classes.main}>
             <article className={classes.article}>
               {children}
             </article>
           </main>
-          <Footer />
+          <Footer/>
         </div>
       </React.Fragment>
     );
   }
 }
 
+// export default React.forwardRef((props, ref) => <Layout innerRef={ref} {...props}/>);
 export default Layout;

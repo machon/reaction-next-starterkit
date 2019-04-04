@@ -21,6 +21,7 @@ import getPageContext from "../lib/theme/getPageContext";
 import components from "../custom/componentsContext";
 import componentTheme from "../custom/componentTheme";
 import getAllTags from "../lib/data/getAllTags";
+import ReactDOM from "react-dom";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -79,6 +80,7 @@ export default class App extends NextApp {
     const { route } = this.props.router;
     const { stripe } = this.state;
 
+
     return (
       <Container>
         <ComponentsProvider value={components}>
@@ -95,7 +97,7 @@ export default class App extends NextApp {
                       <Component pageContext={this.pageContext} shop={shop} {...rest} {...pageProps} />
                     </StripeProvider>
                   ) : (
-                    <Layout shop={shop} viewer={viewer}>
+                    <Layout shop={shop} viewer={viewer} >
                       <Component pageContext={this.pageContext} shop={shop} {...rest} {...pageProps} />
                     </Layout>
                   )}

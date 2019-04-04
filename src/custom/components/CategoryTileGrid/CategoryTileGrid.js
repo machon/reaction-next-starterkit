@@ -16,18 +16,31 @@ const styles = (theme) => ({
 
   overflowDiv: {
     overflow: "hidden",
-    width: "95%",
-    margin: "0 auto"
+    width: "100%",
+    margin: "0 auto",
+    position: "relative"
   },
 
   heroImg: {
     width: "100%",
     height: "auto",
-    transition: "all,.6s",
+    // transition: "all,.6s",
+    // border: "4px solid #d6d7e1",
     "will-change": "transform",
     '&:hover': {
-      transform: "scale(1.05)"
+      // transform: "scale(1.05)",
+      border: "4px solid #afff8b",
+
     }
+  },
+
+  imgLabel: {
+    position: "absolute",
+    top: "90%",
+    bottom: 0,
+    right: 0,
+    left: 0,
+    textDecoration: "underline",
   }
 
 });
@@ -58,21 +71,22 @@ export default class CategoryTileGrid extends Component {
 
     return (
       <React.Fragment>
-        <Grid container spacing={12} className={classes.grid}>
+        <Grid container spacing={40} className={classes.grid}>
           {tags.map((tag, index) => {
 
-              return tag.heroMediaUrl ? (
-                <Grid item xs={xs} md={md} lg={lg} key={index}
-                      style={{ marginBottom: "10px", textAlign: "center", }}>
-                  <Link route={`/tag/${tag.slug}`}>
-                    <div className={classes.overflowDiv}>
-                      <img src={tag.heroMediaUrl} className={classes.heroImg} alt={"Main Category"}/>
-                    </div>
-                    <Typography inline="true" align="center" variant='title'>
-                      <label style={{ textDecoration: "underline" }}>{tag.name}</label>
+            return tag.heroMediaUrl ? (
+              <Grid item xs={xs} md={md} lg={lg} key={index}
+                    style={{ marginBottom: "10px", textAlign: "center" }}>
+                <Link route={`/tag/${tag.slug}`}>
+                  <div className={classes.overflowDiv}>
+                    <img src={tag.heroMediaUrl} className={classes.heroImg} alt={"Main Category"}/>
+                    <Typography inline="true" align="center" variant='title' className={classes.imgLabel}>
+                      {tag.name}
                     </Typography>
-                  </Link>
-                </Grid>): null;
+                  </div>
+
+                </Link>
+              </Grid>) : null;
 
           })
           }

@@ -9,22 +9,18 @@ const theme = createMuiTheme({
     SkHeader: {
       appBar: {
         // backgroundColor: "#91ff5c"
-        borderTop: `solid 1px #f5f5f5`,
+        // borderTop: `solid 1px #f5f5f5`,
       },
       title: {
-        color: "#91ff5c",
+        // color: "#91ff5c",
         borderBottom: `solid 5px #91ff5c`,
       },
     },
 
-    
 
     SkFooter: {
       footer: {
-        borderTop: "5px solid #ff67a9",
-        minHeight: "15vh",
-        backgroundColor: "#5acc25",
-        marginBottom: "0",
+
         // boxShadow: "0 0 15px #129a00",
 
       }
@@ -32,20 +28,21 @@ const theme = createMuiTheme({
   },
 
   layout: {
-    mainContentMaxWidth: "1440px",
+    // "1440px"
+    mainContentMaxWidth: "1900px",
     mainLoginMaxWidth: "1024px"
   },
   palette: {
     primary: {
-      light: "#91ff5c",
-      main: "#5acc25",
-      dark: "#129a00",
-      contrastText: "#FFFFFF"
+      light: "#ffd6ed",
+      main: "#ffd6ed",
+      dark: "#cca5bb",
+      contrastText: "#000000"
     },
     secondary: {
-      light: "#ff9adb",
-      main: "#ff67a9",
-      dark: "#c8317a",
+      light: "#afff8b",
+      main: "#7ae55a",
+      dark: "#43b227",
       contrastText: "#000000"
     },
     background: {
@@ -68,10 +65,10 @@ const theme = createMuiTheme({
       default: "1px solid #e6e6e6"
     },
     reaction: {
-      activeElementBorderColor: "#91ff5c",
+      activeElementBorderColor: "#7ae55a",
       activeElementBackground: "#E6E6E6",
       badges: {
-        bestseller: "#91ff5c",
+        bestseller: "#7ae55a",
         sale: "#E54F5D"
       },
       borderColor: "#CCCCCC",
@@ -170,7 +167,8 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true, // TODO: remove this once new variant styles are official in V4.0.0: https://material-ui.com/style/typography/#migration-to-typography-v2
-    fontFamily: "Source Sans Pro, Helvetica Neue, Helvetica, sans-serif",
+    // fontFamily: "Source Sans Pro, Helvetica Neue, Helvetica, sans-serif",
+    fontFamily: "Open Sans, Helvetica Neue, Helvetica, sans-serif",
     fontSize: 16,
     fontWeightLight: 400,
     fontWeightRegular: 400,
@@ -189,7 +187,25 @@ const theme = createMuiTheme({
       fontSize: 16,
       fontWeight: 600,
       color: "#3c3c3c"
-    }
+    },
+    h1: {
+      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
+    h2: {
+      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
+    h3: {
+      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
+    h4: {
+      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
+    h5: {
+      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
+    h6: {
+      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
   }
 });
 
