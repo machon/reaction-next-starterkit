@@ -13,7 +13,7 @@ const theme = createMuiTheme({
       },
       title: {
         // color: "#91ff5c",
-        borderBottom: `solid 5px #91ff5c`,
+        // borderBottom: `solid 5px #91ff5c`,
       },
     },
 
@@ -29,15 +29,16 @@ const theme = createMuiTheme({
 
   layout: {
     // "1440px"
-    mainContentMaxWidth: "1900px",
+    mainContentMaxWidth: "1920px",
     mainLoginMaxWidth: "1024px"
   },
   palette: {
     primary: {
       light: "#ffd6ed",
-      main: "#ffd6ed",
+      main: "#ffd8ff",
       dark: "#cca5bb",
-      contrastText: "#000000"
+      // TODO contrast color is buggy on text, or background on some Elements
+      contrastText: "#FFFFFF"
     },
     secondary: {
       light: "#afff8b",
@@ -190,21 +191,27 @@ const theme = createMuiTheme({
     },
     h1: {
       fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+      color: "#8c8c8c"
     },
     h2: {
       fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+      color: "#8c8c8c"
     },
     h3: {
       fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+      color: "#8c8c8c"
     },
     h4: {
       fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+      color: "#8c8c8c"
     },
     h5: {
       fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+      color: "#8c8c8c"
     },
     h6: {
       fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
+      color: "#8c8c8c"
     },
   }
 });

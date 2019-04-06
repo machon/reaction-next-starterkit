@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = (theme) => ({
   gridTitle: {
-    color: theme.palette.reaction.coolGrey500,
+    // color: theme.palette.reaction.coolGrey500,
     fontWeight: theme.typography.fontWeightMedium,
     margin: "30px 0",
     textAlign: "center"

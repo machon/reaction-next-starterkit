@@ -28,7 +28,7 @@ const styles = (theme) => ({
   title: {
     color: theme.palette.reaction.reactionBlue,
     marginRight: theme.spacing.unit,
-    borderBottom: `solid 5px ${theme.palette.reaction.reactionBlue200}`
+    // borderBottom: `solid 5px ${theme.palette.reaction.reactionBlue200}`
   },
   toolbar: {
     alignItems: "center",
@@ -36,15 +36,10 @@ const styles = (theme) => ({
     justifyContent: "space-between"
   },
   logo: {
-    // '&:hover img': {
-    //   width: "150px"
-    // }
-    'img &': {
-      width: "150px"
-    }
   },
-  myImg: {
-    width: "150px"
+  myLogo: {
+    width: "69%",
+    marginBottom: "-4px"
   }
 });
 
@@ -71,7 +66,7 @@ class Header extends Component {
   };
 
   render() {
-    const { classes: { appBar, controls, toolbar, title, logo, myImg }, shop } = this.props;
+    const { classes: { appBar, controls, toolbar, title, logo, myLogo }, shop } = this.props;
 
     return (
       <AppBar position="static" elevation={0} className={appBar}>
@@ -80,19 +75,19 @@ class Header extends Component {
             <NavigationToggleMobile onClick={this.handleNavigationToggleClick}/>
           </Hidden>
 
-          <div className={controls}>
-            <Typography className={title} color="inherit" variant="h6">
-              <Link route="/">
+          <div className={controls}><Link route="/">
                 {/*<ShopLogo shopName={shop.name}*/}
                           {/*// classes={{img: myImg}}*/}
                           {/*// shopLogoUrl="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"*/}
                 {/*/>*/}
                 <img src="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"
                      alt="Logo"
-                     style={{maxWidth: "150px"}}
+                     className={myLogo}
                 />
               </Link>
-            </Typography>
+            {/*<Typography className={title} color="inherit" variant="h6">*/}
+              {/**/}
+            {/*</Typography>*/}
 
             <Hidden smDown initialWidth={"md"}>
               <NavigationDesktop

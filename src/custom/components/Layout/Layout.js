@@ -4,6 +4,8 @@ import { withStyles } from "@material-ui/core/styles";
 import Header from "components/Header";
 import Footer from "custom/components/Footer";
 import InfoListBanner from "custom/components/InfoListBanner";
+import Hidden from '@material-ui/core/Hidden';
+
 
 const styles = (theme) => ({
   root: {
@@ -11,7 +13,7 @@ const styles = (theme) => ({
   },
   main: {
     flex: "1 1 auto",
-    // maxWidth: theme.layout.mainContentMaxWidth,
+    maxWidth: theme.layout.mainContentMaxWidth,
     width: "100%",
     // maxWidth: "99.21vw",
     marginLeft: "auto",
@@ -45,10 +47,13 @@ class Layout extends Component {
     return (
       <React.Fragment>
         <div className={classes.root}>
-          <InfoListBanner
+          <Hidden smDown>
+            <InfoListBanner
             iconName="check"
+            indexToApplyHiddenOn={3}
             listItems={['Versandkostenfrei ab 75 €', 'Versicherter Versand',
               'Lieferzeit 2-3 Werktage', '30 Tage Rückgaberecht ']}/>
+          </Hidden>
           <Header shop={shop} viewer={viewer}/>
           <main className={classes.main}>
             <article className={classes.article}>

@@ -1,5 +1,5 @@
 // Created by Andre Machon 28/01/2019
-import React from "react";
+import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { withComponents } from "@reactioncommerce/components-context";
@@ -9,33 +9,38 @@ import CategoryTileGrid from "custom/components/CategoryTileGrid";
 import Grid from "@material-ui/core/Grid";
 import FeaturedCategories from "custom/components/FeaturedCategories";
 import withTagFilter from "custom/containers/tagFilter/withTagFilter";
+import classNames from 'classnames';
 
 const MainCategories = withTagFilter(CategoryTileGrid, 'keywords', 'HomePageCategory');
 // const FeatCategories = withTagFilter(FeaturedCategories, 'keywords', 'featuredCategory');
 
 const styles = (theme) => ({
-  homepage: {
-    alignItems: "center",
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: theme.spacing.unit * 2
+  gridItem: {
+    marginBottom: "4em",
   },
 
-  text: {
-    fontSize: 28
+  primaryLightColor: {
+    color: theme.palette.primary.light,
+  },
+
+  primaryDarkColor: {
+    // color: theme.palette.primary.dark,
+    color: theme.palette.reaction.black45,
   },
 
   headlineDiv: {
-    width: "99.21vw",
-    // width: "100%",
+    // width: "99.21vw",
+    width: "100%",
     height: "auto",
     minHeight: "140px",
     padding: "10px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: theme.palette.primary.main,
+
     // backgroundImage: "linear-gradient(to right, rgba(210,255,82,0.5), rgba(145,255,92,0.9))",
-    outline: "4px solid #afff8b",
+    // outline: "4px solid #afff8b",
 
     // background: "#ff9adb",
     // boxShadow: "-2px 3px 5px #ff67a9",
@@ -44,28 +49,34 @@ const styles = (theme) => ({
   },
 
   aboutDiv: {
-    // width: "100%",
-    width: "99.21vw",
+    width: "100%",
+    // width: "99.21vw",
     height: "350px",
     // backgroundColor: theme.palette.reaction.teal200,
-    // backgroundColor: theme.palette.primary.light,
-    backgroundImage: "linear-gradient(to right, rgba(210,255,82,0.5), rgba(145,255,92,0.9))",
+    // backgroundColor: theme.palette.primary.main,
+    // backgroundImage: "linear-gradient(to right, rgba(210,255,82,0.5), rgba(145,255,92,0.9))",
     textAlign: "center"
   },
 
   marginGridItem: {
-    paddingLeft: theme.spacing.unit * 5,
-    paddingRight: theme.spacing.unit * 5,
+    paddingLeft: theme.spacing.unit * 8,
+    paddingRight: theme.spacing.unit * 8,
   },
 
   headerIMG: {
     // maxHeight: "635px",
-    paddingTop: "33%"
+    paddingTop: "33%",
+  },
+
+  mainCategoryContainer: {
+    border: `4px solid ${theme.palette.primary.light}`,
+    padding: "10px",
   }
 });
 
 @withComponents
-@withStyles(styles, {name: 'SkHomePage'})
+@withStyles(styles, { name: 'SkHomePage', withTheme: true })
+// @withTheme()
 export default class HomePage extends React.Component {
   // constructor(props) {
   //   super(props);
@@ -84,12 +95,12 @@ export default class HomePage extends React.Component {
   // };
 
   render() {
-    const { classes, components: { Button, ProgressiveImage } } = this.props;
+    const { classes, components: { Button, ProgressiveImage }, theme } = this.props;
 
     return (
-      <div className="homepage">
-        <div style={{marginBottom: "30px"}}>
-            <ProgressiveImage
+      <div>
+        <div className={classes.gridItem}>
+          <ProgressiveImage
             className={classes.headerIMG}
             srcs={{
               large: "http://localhost:3000/assets/files/Media/jejxGbTZ2XwyKmm6a/large/StartFoto.png",
@@ -100,91 +111,62 @@ export default class HomePage extends React.Component {
             alt="HeaderImage"/>
         </div>
 
-        <Grid container spacing={16} style={{ maxWidth: "100%" }}>
-          <Grid item xs={12}>
-            <div className={classes.marginGridItem}>
-              <FeaturedCategories/>
-            </div>
-          </Grid>
 
-          <Grid item xs={12}>
-            <div className={classes.headlineDiv}>
-              {/*<Typography variant="h3" align="center" gutterBottom style={{ color: "#ff67a9" }}>*/}
-              {/*Kategorie Sektion*/}
-              {/*</Typography>*/}
-              <img
-                src="http://localhost:3000/assets/files/Media/2qw9oTxvbwutn4aQo/small/AntonUndSophie_Siegel_weiss.png"
-                alt="siegel"/>
-              <div style={{maxWidth: "50%"}}>
-                <Typography variant="body1">Alltagstaugliche Baby- und Kinderprodukte mit bester Qualität in einem coolen, schönen Look -
+        {/*<Grid container spacing={32}>*/}
+          <Grid item xs={12} className={classes.gridItem}>
+          <Typography
+            variant="h2"
+            align="center"
+            gutterBottom
+          >
+            Unsere Lieblinge
+          </Typography>
+          <div className={classNames(classes.marginGridItem)}>
+            <div className={classes.mainCategoryContainer}>
+              <MainCategories/>
+            </div>
+          </div>
+        </Grid>
+
+        <Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)}>
+          <div className={classes.headlineDiv}>
+            <img
+              src="http://localhost:3000/assets/files/Media/2qw9oTxvbwutn4aQo/small/AntonUndSophie_Siegel_weiss.png"
+              alt="siegel"/>
+            <div style={{ maxWidth: "50%" }}>
+              <Typography variant="body1">Alltagstaugliche Baby- und Kinderprodukte mit bester Qualität in einem coolen,
+                schönen Look -
                 das ist die Welt von Anton & Sophie. WILLKOMMEN IN UNSERER WELT! Eure Helen Schondorff</Typography>
               <img
                 src="http://localhost:3000/assets/files/Media/jJ4W8kT2gSLgjwAsP/medium/Unterschrift Helen.png"
                 alt="unterschrift"/>
-              </div>
+            </div>
 
-              <div>
-                <img
+            <div>
+              <img
                 src="http://localhost:3000/assets/files/Media/brzziSTS2svsnyHjZ/small/Anton und Sophie owl.png"
                 alt="eule"/>
-              </div>
             </div>
-          </Grid>
-
-          <Grid item xs={12}>
-            <div className={classes.marginGridItem}>
-              <div style={{width: "80%", margin: "auto"}}>
-                <MainCategories/>
-              </div>
-            </div>
-          </Grid>
-
-          {/*<Grid item xs={12}>*/}
-          {/*<div className={classes.aboutDiv}*/}
-          {/*style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>*/}
-          {/*<Typography variant="h3" style={{ color: "#ff67a9" }}>*/}
-          {/*Wir haben dir schonmal was rausgesucht PLATZHALTER!*/}
-          {/*</Typography>*/}
-          {/*</div>*/}
-          {/*</Grid>*/}
-
-          {/*<Grid item xs={12}>*/}
-          {/*<div className={classes.aboutDiv}>*/}
-          {/*<Typography variant="h3" style={{ color: "#ff67a9" }} gutterBottom>Über Anton&Sophie PLATZHALTER!</Typography>*/}
-          {/*<img src="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"*/}
-          {/*alt="Logo" style={{ maxWidth: "40%" }}/>*/}
-          {/*<Typography variant="p">Logo kleiner und ohne weissen Hintergrund</Typography>*/}
-          {/*<Typography variant="p">Hier eine kurze Beschreibung und / oder Link zur über uns Seite</Typography>*/}
-          {/*<Typography variant="p">*/}
-          {/*Eventuell auch ein anderes Bild, gutes Beispiel war die Seite über Anton&Sophie bei Amazon*/}
-          {/*</Typography>*/}
-          {/*</div>*/}
-          {/*</Grid>*/}
-
-
-          {/*<Grid item xs={12}>*/}
-          {/*<Button*/}
-          {/*title="Default"*/}
-          {/*className="myBtn"*/}
-          {/*isWaiting={this.state.isWaiting}*/}
-          {/*onClick={this.onBtnClick}*/}
-          {/*>Default Reaction Button!</Button>*/}
-          {/*</Grid>*/}
-
-
-          {/*<Grid item xs={12}>*/}
-          {/*<Button*/}
-          {/*title="Secondary"*/}
-          {/*actionType="secondary"*/}
-          {/*className="myBtn"*/}
-          {/*isWaiting={this.state.isWaiting}*/}
-          {/*onClick={this.onBtnClick}*/}
-          {/*>Secondary Reaction Button!</Button>*/}
-          {/*</Grid>*/}
-
-
-          {/*<HomePageFeatured/>*/}
+          </div>
         </Grid>
+
+          <Grid item xs={12} className={classes.gridItem}>
+            <Typography
+              variant="h2"
+              align="center"
+              gutterBottom
+            >
+              Unsere Specials
+            </Typography>
+            <div className={classes.marginGridItem}>
+              <FeaturedCategories/>
+            </div>
+          </Grid>
+        {/*</Grid>*/}
+
+
+
+        {/*<HomePageFeatured/>*/}
       </div>
     );
   }
@@ -200,4 +182,4 @@ HomePage.propTypes = {
   })
 };
 
-// export default withStyles(styles)(HomePage);
+// export default withTheme()(HomePage);

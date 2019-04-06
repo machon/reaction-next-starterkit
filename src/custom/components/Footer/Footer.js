@@ -14,10 +14,11 @@ const styles = (theme) => ({
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
+    // borderTop: "5px solid #cca5bb",
     borderTop: "5px solid #cca5bb",
     minHeight: "15vh",
     marginBottom: "0",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   controls: {
     alignItems: "inherit",

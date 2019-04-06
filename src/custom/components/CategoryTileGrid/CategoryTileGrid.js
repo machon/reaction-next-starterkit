@@ -12,6 +12,8 @@ import logger from 'lib/logger';
 const styles = (theme) => ({
   grid: {
     flexGrow: 1,
+    marginBottom: "20px",
+    marginTop: "20px",
   },
 
   overflowDiv: {
@@ -24,23 +26,22 @@ const styles = (theme) => ({
   heroImg: {
     width: "100%",
     height: "auto",
-    // transition: "all,.6s",
-    // border: "4px solid #d6d7e1",
-    "will-change": "transform",
+    transition: "all,.6s",
+    verticalAlign: "middle",
+    willChange: "transform",
     '&:hover': {
-      // transform: "scale(1.05)",
-      border: "4px solid #afff8b",
+      transform: "scale(1.05)",
+      // border: "4px solid #afff8b",
 
     }
   },
 
   imgLabel: {
-    position: "absolute",
-    top: "90%",
-    bottom: 0,
-    right: 0,
-    left: 0,
-    textDecoration: "underline",
+    // position: "absolute",
+    // top: "90%",
+    // bottom: 0,
+    // right: 0,
+    // left: 0,
   }
 
 });
@@ -63,7 +64,7 @@ export default class CategoryTileGrid extends Component {
     tags: [],
     xs: 12,
     md: 6,
-    lg: 4,
+    lg: 2,
   };
 
   render() {
@@ -77,14 +78,14 @@ export default class CategoryTileGrid extends Component {
             return tag.heroMediaUrl ? (
               <Grid item xs={xs} md={md} lg={lg} key={index}
                     style={{ marginBottom: "10px", textAlign: "center" }}>
-                <Link route={`/tag/${tag.slug}`}>
+                <Link route={`/tag/${tag.slug}`} >
                   <div className={classes.overflowDiv}>
                     <img src={tag.heroMediaUrl} className={classes.heroImg} alt={"Main Category"}/>
-                    <Typography inline="true" align="center" variant='title' className={classes.imgLabel}>
-                      {tag.name}
-                    </Typography>
-                  </div>
 
+                  </div>
+                  <Typography inline="true" align="center" variant='h5' className={classes.imgLabel}>
+                    {tag.name}
+                  </Typography>
                 </Link>
               </Grid>) : null;
 
