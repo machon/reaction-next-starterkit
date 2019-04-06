@@ -1,5 +1,5 @@
 // Created by Andre Machon 28/01/2019
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { withComponents } from "@reactioncommerce/components-context";
@@ -23,38 +23,9 @@ const styles = (theme) => ({
     color: theme.palette.primary.light,
   },
 
-  primaryDarkColor: {
-    // color: theme.palette.primary.dark,
-    color: theme.palette.reaction.black45,
-  },
-
-  headlineDiv: {
-    // width: "99.21vw",
-    width: "100%",
-    height: "auto",
-    minHeight: "140px",
-    padding: "10px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: theme.palette.primary.main,
-
-    // backgroundImage: "linear-gradient(to right, rgba(210,255,82,0.5), rgba(145,255,92,0.9))",
-    // outline: "4px solid #afff8b",
-
-    // background: "#ff9adb",
-    // boxShadow: "-2px 3px 5px #ff67a9",
-    // border: "solid 2px #ff9adb",
-
-  },
-
   aboutDiv: {
     width: "100%",
-    // width: "99.21vw",
     height: "350px",
-    // backgroundColor: theme.palette.reaction.teal200,
-    // backgroundColor: theme.palette.primary.main,
-    // backgroundImage: "linear-gradient(to right, rgba(210,255,82,0.5), rgba(145,255,92,0.9))",
     textAlign: "center"
   },
 
@@ -69,8 +40,15 @@ const styles = (theme) => ({
   },
 
   mainCategoryContainer: {
-    border: `4px solid ${theme.palette.primary.light}`,
-    padding: "10px",
+    // border: `4px solid ${theme.palette.primary.light}`,
+    // padding: "10px",
+    borderBottom: "10px solid #ffd6ed",
+  },
+
+  pictureCenterDiv: {
+    // alignItems: "center",
+    justifyContent: "center",
+    display: "flex"
   }
 });
 
@@ -111,15 +89,13 @@ export default class HomePage extends React.Component {
             alt="HeaderImage"/>
         </div>
 
-
-        {/*<Grid container spacing={32}>*/}
-          <Grid item xs={12} className={classes.gridItem}>
+        <Grid item xs={12} className={classes.gridItem}>
           <Typography
             variant="h2"
             align="center"
             gutterBottom
           >
-            Unsere Lieblinge
+            Unsere Produkte
           </Typography>
           <div className={classNames(classes.marginGridItem)}>
             <div className={classes.mainCategoryContainer}>
@@ -128,42 +104,85 @@ export default class HomePage extends React.Component {
           </div>
         </Grid>
 
-        <Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)}>
-          <div className={classes.headlineDiv}>
-            <img
-              src="http://localhost:3000/assets/files/Media/2qw9oTxvbwutn4aQo/small/AntonUndSophie_Siegel_weiss.png"
-              alt="siegel"/>
-            <div style={{ maxWidth: "50%" }}>
-              <Typography variant="body1">Alltagstaugliche Baby- und Kinderprodukte mit bester Qualität in einem coolen,
-                schönen Look -
-                das ist die Welt von Anton & Sophie. WILLKOMMEN IN UNSERER WELT! Eure Helen Schondorff</Typography>
-              <img
-                src="http://localhost:3000/assets/files/Media/jJ4W8kT2gSLgjwAsP/medium/Unterschrift Helen.png"
-                alt="unterschrift"/>
-            </div>
-
-            <div>
-              <img
-                src="http://localhost:3000/assets/files/Media/brzziSTS2svsnyHjZ/small/Anton und Sophie owl.png"
-                alt="eule"/>
-            </div>
+        <Grid item xs={12} className={classes.gridItem}>
+          <Typography
+            variant="h2"
+            align="center"
+            gutterBottom
+          >
+            Unsere Specials
+          </Typography>
+          <div className={classes.marginGridItem}>
+            <FeaturedCategories/>
           </div>
         </Grid>
 
-          <Grid item xs={12} className={classes.gridItem}>
-            <Typography
-              variant="h2"
-              align="center"
-              gutterBottom
-            >
-              Unsere Specials
-            </Typography>
-            <div className={classes.marginGridItem}>
-              <FeaturedCategories/>
-            </div>
-          </Grid>
+        {/*Hier featured Produkt Slider*/}
+        {/*<Grid item xs={12} className={classes.gridItem}>*/}
+          {/*<Typography*/}
+            {/*variant="h2"*/}
+            {/*align="center"*/}
+            {/*gutterBottom*/}
+          {/*>*/}
+            {/*Unsere Lieblinge*/}
+          {/*</Typography>*/}
+          {/*<div className={classes.marginGridItem}>*/}
+          {/*</div>*/}
         {/*</Grid>*/}
 
+        {/*About Anton & Sophie Div*/}
+        {/*<Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)}*/}
+        <Grid item xs={12} className={classNames(classes.marginGridItem)}
+              style={{ background: theme.palette.primary.light }}>
+
+          {/*Todo export to own component*/}
+          <Typography
+            variant="h2"
+            align="center"
+            gutterBottom
+            style={{ paddingTop: "20px" }}
+          >
+            Über Uns
+          </Typography>
+          <Grid container>
+
+            <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <div style={{ textAlign: "center" }}>
+                <Typography variant="h5" gutterBottom>Alltagstauglich</Typography>
+                <Typography variant="body2">
+                  All unsere Produkte haben ein Ziel: den Alltag mit Kindern ein Stück
+                  zu vereinfachen. Jeder Artikel wird mit viel Herzblut & Liebe designed / ausgewählt
+                  und daraufhin ausführlich getestet. ❤ Von Müttern für dein Kind ❤</Typography>
+                <img
+                  src="http://localhost:3000/assets/files/Media/2qw9oTxvbwutn4aQo/small/AntonUndSophie_Siegel_weiss.png"
+                  alt="siegel"/>
+              </div>
+            </Grid>
+
+            <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <div style={{ textAlign: "center" }}>
+                <Typography variant="h5" gutterBottom>Individuell</Typography>
+                <Typography variant="body2">
+                  Jedes Kind ist ein ganz besonderes Unikat. Und dieses Gefühl möchten wir mit unserem
+                  Personalisierungs-Service in die Welt transportieren, denn: dein Kind ist einzigartig auf dieser Welt!
+                </Typography>
+              </div>
+            </Grid>
+
+            <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <div style={{ textAlign: "center" }}>
+                <Typography variant="h5" gutterBottom>Erstklassig</Typography>
+                <Typography variant="body2">
+                  Hochwertige Stoffe, perfekte Verarbeitung und hohe Standards sind unser Maßstab für dein Kind.
+                </Typography>
+                <img
+                  src="http://localhost:3000/assets/files/Media/brzziSTS2svsnyHjZ/small/Anton und Sophie owl.png"
+                  alt="eule"/>
+              </div>
+            </Grid>
+
+          </Grid>
+        </Grid>
 
 
         {/*<HomePageFeatured/>*/}
@@ -182,4 +201,19 @@ HomePage.propTypes = {
   })
 };
 
-// export default withTheme()(HomePage);
+// 3er Einteilung:
+//
+// Alltagstauglich
+// All unsere Produkte haben ein Ziel: den Alltag mit Kindern ein Stück zu vereinfachen. Jeder Artikel wird mit viel Herzblut & Liebe designed / ausgewählt und daraufhin ausführlich getestet. ❤ Von Müttern für dein Kind ❤
+//
+// (dadrunter das Siegel)
+//
+// Individuell
+// Jedes Kind ist ein ganz besonderes Unikat. Und dieses Gefühl möchten wir mit unserem Personalisierungs-Service in die Welt transportieren, denn: dein Kind ist einzigartig auf dieser Welt!
+//
+// (Bild im Anhang)
+//
+// Erstklassig
+// Hochwertige Stoffe, perfekte Verarbeitung und hohe Standards sind unser Maßstab für dein Kind.
+//
+// (dadrunter die Eule)

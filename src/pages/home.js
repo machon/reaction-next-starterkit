@@ -27,7 +27,7 @@ class Home extends Component {
           <title>{shop && shop.name}</title>
           <meta name="description" content={shop && shop.description} />
         </Helmet>
-        <HomePage />
+        <HomePage/>
       </Fragment>
     );
   }
