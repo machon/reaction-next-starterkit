@@ -2,12 +2,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { inject } from "mobx-react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import { withComponents } from "@reactioncommerce/components-context";
-import SharedPropTypes from "lib/utils/SharedPropTypes";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import logger from 'lib/logger';
+import ImageTile from 'custom/components/ImageTile';
 
 const styles = (theme) => ({
   grid: {
@@ -16,40 +15,13 @@ const styles = (theme) => ({
     marginTop: "20px",
   },
 
-  overflowDiv: {
-    overflow: "hidden",
-    width: "100%",
-    margin: "0 auto",
-    position: "relative"
-  },
-
-  heroImg: {
-    width: "100%",
-    height: "auto",
-    transition: "all,.6s",
-    verticalAlign: "middle",
-    willChange: "transform",
-    '&:hover': {
-      transform: "scale(1.05)",
-      // border: "4px solid #afff8b",
-
-    }
-  },
-
-  imgLabel: {
-    // position: "absolute",
-    // top: "90%",
-    // bottom: 0,
-    // right: 0,
-    // left: 0,
-  }
+  imgLabel: {}
 
 });
 
 // @withTag
 @inject("routingStore", "uiStore")
 @withStyles(styles, { name: "SkCategoryTileGrid" })
-@withComponents
 export default class CategoryTileGrid extends Component {
   static propTypes = {
     classes: PropTypes.object,
@@ -68,25 +40,28 @@ export default class CategoryTileGrid extends Component {
   };
 
   render() {
-    const { classes, components: { Link }, tags, xs, md, lg } = this.props;
+    const { classes, tags, xs, md, lg } = this.props;
 
     return (
       <React.Fragment>
         <Grid container spacing={40} className={classes.grid}>
           {tags.map((tag, index) => {
+            let caption = (
+              <Typography inline="true" align="center" variant='h5' className={classes.imgLabel}>
+                {tag.name}
+              </Typography>
+            );
 
             return tag.heroMediaUrl ? (
               <Grid item xs={xs} md={md} lg={lg} key={index}
                     style={{ marginBottom: "10px", textAlign: "center" }}>
-                <Link route={`/tag/${tag.slug}`} >
-                  <div className={classes.overflowDiv}>
-                    <img src={tag.heroMediaUrl} className={classes.heroImg} alt={"Main Category"}/>
 
-                  </div>
-                  <Typography inline="true" align="center" variant='h5' className={classes.imgLabel}>
-                    {tag.name}
-                  </Typography>
-                </Link>
+                <ImageTile
+                  route={`/tag/${tag.slug}`}
+                  imgUrl={tag.heroMediaUrl}
+                  imgAlt={tag.name}
+                  caption={caption}
+                />
               </Grid>) : null;
 
           })

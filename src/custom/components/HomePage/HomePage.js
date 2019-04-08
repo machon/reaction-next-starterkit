@@ -81,7 +81,7 @@ export default class HomePage extends React.Component {
           <ProgressiveImage
             className={classes.headerIMG}
             srcs={{
-              large: "http://localhost:3000/assets/files/Media/jejxGbTZ2XwyKmm6a/large/StartFoto.png",
+              large: "static/images/StartFoto.jpg",
               medium: "http://localhost:3000/assets/files/Media/jejxGbTZ2XwyKmm6a/medium/StartFoto.png",
               small: "http://localhost:3000/assets/files/Media/jejxGbTZ2XwyKmm6a/small/StartFoto.png"
             }}
@@ -102,6 +102,64 @@ export default class HomePage extends React.Component {
               <MainCategories/>
             </div>
           </div>
+        </Grid>
+
+        {/*About Anton & Sophie Div*/}
+        {/*<Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)} style={{ background: theme.palette.primary.light }} >*/}
+        <Grid item xs={12} className={classNames(classes.marginGridItem, classes.gridItem)} >
+
+          {/*<div style={{ background: theme.palette.primary.light }}>*/}
+
+          {/*Todo export to own component*/}
+          <Typography
+            variant="h2"
+            align="center"
+            gutterBottom
+            style={{ paddingTop: "20px" }}
+          >
+            Über Uns
+          </Typography>
+          <Grid container style={{ background: theme.palette.primary.light }}>
+
+            <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <div style={{ textAlign: "center" }}>
+                <Typography variant="h5" gutterBottom>Alltagstauglich</Typography>
+                <Typography variant="body2">
+                  All unsere Produkte haben ein Ziel: den Alltag mit Kindern ein Stück
+                  zu vereinfachen. Jeder Artikel wird mit viel Herzblut & Liebe designed / ausgewählt
+                  und daraufhin ausführlich getestet. ❤ Von Müttern für dein Kind ❤</Typography>
+                <img
+                  src="http://localhost:3000/assets/files/Media/2qw9oTxvbwutn4aQo/small/AntonUndSophie_Siegel_weiss.png"
+                  alt="siegel"/>
+              </div>
+            </Grid>
+
+            <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <div style={{ textAlign: "center" }}>
+                <Typography variant="h5" gutterBottom>Individuell</Typography>
+                <Typography variant="body2">
+                  Jedes Kind ist ein ganz besonderes Unikat. Und dieses Gefühl möchten wir mit unserem
+                  Personalisierungs-Service in die Welt transportieren, denn: dein Kind ist einzigartig auf dieser Welt!
+                </Typography>
+              </div>
+            </Grid>
+
+            <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <div style={{ textAlign: "center" }}>
+                <Typography variant="h5" gutterBottom>Erstklassig</Typography>
+                <Typography variant="body2">
+                  Hochwertige Stoffe, perfekte Verarbeitung und hohe Standards sind unser Maßstab für dein Kind.
+                </Typography>
+                <img
+                  src="http://localhost:3000/assets/files/Media/brzziSTS2svsnyHjZ/small/Anton und Sophie owl.png"
+                  alt="eule"/>
+              </div>
+            </Grid>
+
+          </Grid>
+
+            {/*</div>*/}
+
         </Grid>
 
         <Grid item xs={12} className={classes.gridItem}>
@@ -131,9 +189,10 @@ export default class HomePage extends React.Component {
         {/*</Grid>*/}
 
         {/*About Anton & Sophie Div*/}
-        {/*<Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)}*/}
-        <Grid item xs={12} className={classNames(classes.marginGridItem)}
-              style={{ background: theme.palette.primary.light }}>
+        {/*<Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)} style={{ background: theme.palette.primary.light }} >*/}
+        <Grid item xs={12} className={classNames(classes.marginGridItem)} style={{ background: "#ffe0f4" }}>
+
+          {/*<div style={{ background: theme.palette.primary.light }}>*/}
 
           {/*Todo export to own component*/}
           <Typography
@@ -182,6 +241,9 @@ export default class HomePage extends React.Component {
             </Grid>
 
           </Grid>
+
+            {/*</div>*/}
+
         </Grid>
 
 
