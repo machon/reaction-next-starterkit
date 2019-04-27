@@ -37,8 +37,6 @@ const styles = theme => ({
   }
 });
 
-// TODO adjust InfoListBanner to be mobile friendly, perhaps show on medium
-
 @withStyles(styles, { name: "SkInfoListBanner" })
 class InfoListBanner extends Component {
   static defaultProps = {
@@ -56,21 +54,22 @@ class InfoListBanner extends Component {
 
         <div className={classes.outerDiv}>
           <div className={classes.listContainer}>
-            <Typography>
-              <ul className={classes.list}>
-                {listItems.map((item, index) => {
-                  let hideItem = index >= indexToApplyHiddenOn;
-                  return (
-                    <Hidden mdDown={hideItem}>
-                      <li className={classes.listItem}>
-                        <Icon className={classes.itemIcon}>{iconName}</Icon>
-                        {item}
-                      </li>
-                    </Hidden>
-                  );
-                })}
-              </ul>
-            </Typography>
+
+            <ul className={classes.list}>
+              {listItems.map((item, index) => {
+                let hideItem = index >= indexToApplyHiddenOn;
+
+                return (
+                  <Hidden mdDown={hideItem} key={`${item}-${index}`}>
+                    <li className={classes.listItem}>
+                      <Icon className={classes.itemIcon}>{iconName}</Icon>
+                      {item}
+                    </li>
+                  </Hidden>
+                );
+              })}
+            </ul>
+
           </div>
         </div>
 

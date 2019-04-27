@@ -23,6 +23,7 @@ import trackProductClicked from "lib/tracking/trackProductClicked";
 import withFeatured from "custom/containers/homepage/withFeatured";
 import withShop from "containers/shop/withShop";
 import { mod } from 'react-swipeable-views-core';
+import logger from 'lib/logger';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const VirtualizeSwipeableViews = virtualize(SwipeableViews);
@@ -57,75 +58,63 @@ class FeaturedCategoryStepper extends React.Component {
   constructor(props) {
     super(props);
 
-    let maxSteps;
-
-    if (props.tags) {
-      maxSteps = props.tags.length -1;
-    }
-    else if (props.featuredProducts && !props.tags) {
-      maxSteps = props.featuredProducts.length -1;
-    }
-    else {
-      maxSteps = 0
-    }
     this.state = {
       activeStep: 0,
-      maxSteps: maxSteps,
     };
   }
 
   handleNext = () => {
-    this.setState(prevState => {
-      const {activeStep, maxSteps} = prevState;
-      let newActiveStep = activeStep + 1 > maxSteps ? 0 : activeStep + 1;
-      return {activeStep: newActiveStep}
-    });
+    this.setState(prevState => ({
+      activeStep: prevState.activeStep + 1,
+    }));
   };
 
   handleBack = () => {
-    this.setState(prevState => {
-      const {activeStep, maxSteps} = prevState;
-      let newActiveStep = activeStep -1 < 0 ? maxSteps : activeStep -1;
-      return {activeStep: newActiveStep}
-    });
+    this.setState(prevState => ({
+      activeStep: prevState.activeStep - 1,
+    }));
   };
 
   handleStepChange = activeStep => {
-    this.setState({ activeStep: activeStep});
+    this.setState({ activeStep });
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.numProductsDisplayed !== prevProps.numProductsDisplayed) {
+      this.handleStepChange(this.state.activeStep+1);
+    }
+  }
+
   renderProductSlide = (params) => {
-
     const { index, key } = params;
-    const { featuredProducts } = this.props;
+    const { featuredProducts, numProductsDisplayed } = this.props;
+    const products = [];
 
+    for (let i = 0; i < numProductsDisplayed; i++) {
+      // TODO perhaps set activestep from index here and put loop for list in ProductSlide
+      products.push(featuredProducts[mod(index + i, featuredProducts.length)]);
+    }
 
-    let product = featuredProducts[0];
     return (
-      <Grid item sm={4} md={2} style={{ margin: "auto" }} key={key}>
-        <CatalogGridItem
-          product={product.product}
-          currencyCode="EUR"
-        />
-        <Typography variant="h6">
-          Featured Product Length: {featuredProducts.length -1}
-        </Typography>
+      <Grid container key={key}>
+        {products.map(product => (
+          <Grid item xs={6} sm={4} md={3} lg={2} style={{ margin: "auto" }}>
+            <CatalogGridItem
+              product={product.product}
+              currencyCode="EUR"
+            />
+          </Grid>
+        ))}
       </Grid>
+
     );
+
   };
 
   renderProducts() {
     const { classes, theme, featuredProducts, width } = this.props;
 
-    const { activeStep, maxSteps } = this.state;
-    // featuredProducts.map(product => (
-    //   <Grid item sm={4} md={2} style={{ margin: "auto" }}>
-    //     <CatalogGridItem
-    //       product={product.product}
-    //       currencyCode="EUR"
-    //     />
-    //   </Grid>
-    // ));
+    const { activeStep } = this.state;
 
     return (
       <div className={classes.root}>
@@ -136,26 +125,25 @@ class FeaturedCategoryStepper extends React.Component {
           onChangeIndex={this.handleStepChange}
           enableMouseEvents
           slideRenderer={this.renderProductSlide}
-          slideCount={maxSteps}
         >
 
         </VirtualizeSwipeableViews>
 
         <MobileStepper
-          steps={maxSteps}
+          // steps={maxSteps}
           position="static"
           activeStep={activeStep}
           className={classes.mobileStepper}
           nextButton={
-            <Button size="medium" onClick={this.handleNext} >
-              Next
+            <Button size="medium" onClick={this.handleNext}>
+
               {theme.direction === 'rtl' ? <Icon>chevron_left</Icon> : <Icon>chevron_right</Icon>}
             </Button>
           }
           backButton={
-            <Button size="medium" onClick={this.handleBack} >
+            <Button size="large" onClick={this.handleBack}>
               {theme.direction === 'rtl' ? <Icon>chevron_right</Icon> : <Icon>chevron_left</Icon>}
-              Back
+
             </Button>
           }
         />
@@ -194,7 +182,7 @@ class FeaturedCategoryStepper extends React.Component {
             }
 
             return (
-              <Fragment>
+              <Fragment key={index}>
                 <Grid container>
 
                   <Grid item sm={12} md={6}>
@@ -247,25 +235,6 @@ class FeaturedCategoryStepper extends React.Component {
             );
           })}
         </AutoPlaySwipeableViews>
-
-        {/*<MobileStepper*/}
-          {/*steps={maxSteps}*/}
-          {/*position="static"*/}
-          {/*activeStep={activeStep}*/}
-          {/*className={classes.mobileStepper}*/}
-          {/*nextButton={*/}
-            {/*<Button size="medium" onClick={this.handleNext} >*/}
-              {/*Next*/}
-              {/*{theme.direction === 'rtl' ? <Icon>chevron_left</Icon> : <Icon>chevron_right</Icon>}*/}
-            {/*</Button>*/}
-          {/*}*/}
-          {/*backButton={*/}
-            {/*<Button size="medium" onClick={this.handleBack} >*/}
-              {/*{theme.direction === 'rtl' ? <Icon>chevron_right</Icon> : <Icon>chevron_left</Icon>}*/}
-              {/*Back*/}
-            {/*</Button>*/}
-          {/*}*/}
-        {/*/>*/}
       </div>
     );
   };

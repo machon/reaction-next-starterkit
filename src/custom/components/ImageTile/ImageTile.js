@@ -12,8 +12,7 @@ const styles = (theme) => ({
     margin: "0 auto",
     position: "relative"
   },
-
-  heroImg: {
+  overflowImg: {
     width: "100%",
     height: "auto",
     transition: "all,.6s",
@@ -23,11 +22,14 @@ const styles = (theme) => ({
       transform: "scale(1.05)",
       // border: "4px solid #afff8b",
 
-    }
+    },
   },
+  img: {
+    width: "100%"
+  }
 });
 
-@withStyles(styles, {name: "SkImageTile"})
+@withStyles(styles, { name: "SkImageTile" })
 export default class ImageTile extends Component {
 
   static propTypes = {
@@ -38,21 +40,34 @@ export default class ImageTile extends Component {
     caption: PropTypes.object,
   };
 
+  static defaultProps = {
+    scaleOnHover: true,
+  };
+
   render() {
-    const {classes, route, imgUrl, imgAlt, caption} = this.props;
+    const { classes, route, imgUrl, imgAlt, caption, scaleOnHover } = this.props;
 
     return (
       <Fragment>
-        <Link route={route}>
-          <div className={classes.overflowDiv}>
+
+        {
+          scaleOnHover ?
+            <Link route={route ? route : ''}>
+              <div className={classes.overflowDiv}>
+                <img
+                  src={imgUrl}
+                  alt={imgAlt}
+                  className={classes.overflowImg}
+                />
+              </div>
+            </Link> :
             <img
               src={imgUrl}
               alt={imgAlt}
-              className={classes.heroImg}
+              className={classes.img}
             />
-          </div>
-          {caption ? caption : null}
-        </Link>
+        }
+        {caption ? caption : null}
       </Fragment>
     );
   }

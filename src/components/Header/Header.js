@@ -80,9 +80,10 @@ class Header extends Component {
                           {/*// classes={{img: myImg}}*/}
                           {/*// shopLogoUrl="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"*/}
                 {/*/>*/}
-                <img src="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"
-                     alt="Logo"
-                     className={myLogo}
+                <img
+                  src="http://localhost:4000/static/images/AuS_Logo_ohne_Claim_200px_RGB.png"
+                  alt="Logo"
+                  className={myLogo}
                 />
               </Link>
             {/*<Typography className={title} color="inherit" variant="h6">*/}

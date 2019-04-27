@@ -14,8 +14,8 @@ export default (Component, filterMetaFieldKey, filterValue) => (
   @inject('tags')
   class WithTagFilter extends React.Component {
     static propTypes = {
-      filterMetaFieldKey: PropTypes.string.isRequired,
-      filterValue: PropTypes.string.isRequired,
+      filterMetaFieldKey: PropTypes.string,
+      filterValue: PropTypes.string,
     };
 
     filterTags = () => {

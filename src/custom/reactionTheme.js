@@ -169,18 +169,18 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: true, // TODO: remove this once new variant styles are official in V4.0.0: https://material-ui.com/style/typography/#migration-to-typography-v2
     // fontFamily: "Source Sans Pro, Helvetica Neue, Helvetica, sans-serif",
-    fontFamily: "Open Sans, Helvetica Neue, Helvetica, sans-serif",
+    fontFamily: "Arsenal, Helvetica Neue, Helvetica, sans-serif",
     fontSize: 16,
     fontWeightLight: 400,
     fontWeightRegular: 400,
     fontWeightMedium: 600,
     fontWeightBold: 700,
     subtitle2: {
-      fontSize: 14,
+      fontSize: 15,
       color: "#737373"
     },
     body2: {
-      fontSize: 14,
+      fontSize: 15,
       fontWeight: 400,
       color: "#595959"
     },
