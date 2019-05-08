@@ -28,7 +28,7 @@ class Impressum extends Component {
           <meta name="about-page" content={shop && shop.description}/>
         </Helmet>
         <Typography>
-          <div className="entry">
+          <div className="entry" style={{marginRight: "8em", marginLeft: "8em"}}>
             <header className="entry-header">
               <h1 className="entry-title">
                 Impressum </h1>

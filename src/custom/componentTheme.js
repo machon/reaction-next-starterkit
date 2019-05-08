@@ -13,15 +13,24 @@ export default {
     // bodyText: {
     //   color: "#5acc25"
     // },
-    // labelText: {
-    //   color: "#5acc25"
-    // },
-    // labelTextBold: {
-    //   color: "#5acc25"
+    labelText: {
+      color: "#8c8c8c"
+    },
+    labelTextBold: {
+      color: "#8c8c8c"
+    },
+    headingTextBold: {
+      color: "#8c8c8c"
+    },
+    // caption: {
+    //   color: "#8c8c8c"
     // }
   },
 
   rui_components: {
+    CatalogGridItemProductTitle: {
+      color: "red",
+    },
     Button: {
       backgroundColor_default: "#5acc25",
       backgroundColor_default_active: "#129a00",
@@ -38,6 +47,9 @@ export default {
       borderColor_secondary_active: "#c8317a",
       borderColor_secondary_hover: "#ff9adb",
       foregroundColor_secondary: "#fff"
+    },
+    CatalogGridItem: {
+      // verticalSpacingBetweenImageAndInfo: "100px"
     }
   }
 };

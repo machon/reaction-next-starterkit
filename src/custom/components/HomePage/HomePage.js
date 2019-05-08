@@ -18,6 +18,9 @@ import withWidth from '@material-ui/core/withWidth';
 
 const MainCategories = withTagFilter(CategoryTileGrid, 'keywords', 'HomePageCategory');
 // const FeatCategories = withTagFilter(FeaturedCategories, 'keywords', 'featuredCategory');
+// const origin = window.location.href;
+const canonicalurl = process.env.CANONICAL_URL;
+const backendurl = `${canonicalurl}:3000/`;
 
 const styles = (theme) => ({
   gridItem: {
@@ -150,33 +153,39 @@ class HomePage extends React.Component {
               align="center"
               gutterBottom
             >
-              Specials!
+              Specials
             </Typography>
             <div className={classes.marginGridItem}>
-              <FeaturedCategories/>
+              <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "4em" }}>
+                <FeaturedCategories/>
+              </div>
             </div>
           </Grid>
 
           {/*Hier featured Produkt Slider*/}
           <Grid item xs={12} className={classes.gridItem}>
-            <Typography
-              variant="h2"
-              align="center"
-              gutterBottom
-            >
-              Unsere Lieblinge
-            </Typography>
             <div className={classes.marginGridItem}>
+              <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "4em" }}>
+                <Typography
+                  variant="h2"
+                  align="center"
+                  gutterBottom
+                >
+                  Deine Lieblinge
+                </Typography>
+                {/*TODO change this later only preview*/}
+                <FeaturedCategoryStepper
+                  numProductsDisplayed={numProductsDisplayed}
+                />
+              </div>
             </div>
-            {/*TODO change this later only preview*/}
-            <FeaturedCategoryStepper
-              numProductsDisplayed={numProductsDisplayed}
-            />
+
           </Grid>
 
           {/*About Anton & Sophie Div*/}
           {/*<Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)} style={{ background: theme.palette.primary.light }} >*/}
-          <Grid item xs={12} className={classNames(classes.marginGridItem)} style={{ background: "#ffe0f4" }}>
+          <Grid item xs={12} className={classNames(classes.marginGridItem)}
+                style={{ background: theme.palette.primary.main }}>
 
             {/*<div style={{ background: theme.palette.primary.light }}>*/}
 
@@ -202,7 +211,7 @@ class HomePage extends React.Component {
                     ❤</Typography>
                   <img
                     src="static/images/AuS_owl_200px_RGB.png"
-
+                    style={{ height: "55%" }}
                     alt="fish"/>
                 </div>
               </Grid>
@@ -216,7 +225,8 @@ class HomePage extends React.Component {
                     und daraufhin ausführlich getestet.</Typography>
                   <Typography variant="body2" gutterBottom>❤ Von Müttern für dein Kind ❤</Typography>
                   <img
-                    src="http://localhost:3000/assets/files/Media/2qw9oTxvbwutn4aQo/small/AntonUndSophie_Siegel_weiss.png"
+                    style={{height: "30%"}}
+                    // src={`/static/images/AntonUndSophie_Siegel_weiss.png`}
                     alt="siegel"/>
                 </div>
               </Grid>
@@ -228,11 +238,12 @@ class HomePage extends React.Component {
                     Jedes Kind ist ein ganz besonderes Unikat. Und dieses Gefühl möchten wir mit unserem
                     Personalisierungs-Service in die Welt transportieren,
                   </Typography>
-                  <Typography variant="body2" gutterBottom>❤ denn Dein Kind ist einzigartig auf dieser Welt!
+                  <Typography variant="body2" style={{ marginBottom: "2.5em" }}>❤ denn Dein Kind ist einzigartig auf
+                    dieser Welt!
                     ❤</Typography>
                   <img
-                    src="static/images/AuS_fish_200px_RGB.png"
-
+                    src={`/static/images/AuS_fish_200px_RGB.png`}
+                    style={{ height: "45%" }}
                     // src="static/images/AuS_owl_200px_RGB.png"
                     alt="eule"/>
                 </div>

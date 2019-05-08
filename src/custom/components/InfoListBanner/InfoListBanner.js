@@ -17,7 +17,7 @@ const styles = theme => ({
     justifyContent: "center"
   },
   listItem: {
-    color: theme.palette.secondary.dark,
+    color: theme.palette.primary.dark,
     // position: "relative"
     lineHeight: "40px",
     paddingLeft: "18px",

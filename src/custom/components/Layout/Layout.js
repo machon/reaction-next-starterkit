@@ -60,7 +60,7 @@ class Layout extends Component {
               {children}
             </article>
           </main>
-          <Footer/>
+          {/*<Footer/>*/}
         </div>
       </React.Fragment>
     );

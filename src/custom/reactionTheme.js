@@ -6,6 +6,16 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   overrides: {
+    SkNavigationItemDesktop: {
+      primaryNavItem: {
+        color: "#8c8c8c"
+      },
+
+      navigationShopAllLink: {
+        color: "#8c8c8c"
+      }
+    },
+
     SkHeader: {
       appBar: {
         // backgroundColor: "#91ff5c"
@@ -169,48 +179,57 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: true, // TODO: remove this once new variant styles are official in V4.0.0: https://material-ui.com/style/typography/#migration-to-typography-v2
     // fontFamily: "Source Sans Pro, Helvetica Neue, Helvetica, sans-serif",
-    fontFamily: "Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
     fontSize: 16,
     fontWeightLight: 400,
     fontWeightRegular: 400,
     fontWeightMedium: 600,
     fontWeightBold: 700,
+    color: "#8c8c8c",
     subtitle2: {
       fontSize: 15,
-      color: "#737373"
+      // color: "#737373",
+      color: "#8c8c8c",
+      fontFamily: "Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
+    body1: {
+      color: "#8c8c8c",
+      fontFamily: "Arsenal, Helvetica Neue, Helvetica, sans-serif",
     },
     body2: {
       fontSize: 15,
       fontWeight: 400,
-      color: "#595959"
+      color: "#595959",
+      // color: "#8c8c8c",
+      fontFamily: "Arsenal, Helvetica Neue, Helvetica, sans-serif",
+    },
+    caption: {
+      color: "#8c8c8c",
+      fontWeight: "600",
     },
     subtitle1: {
       fontSize: 16,
       fontWeight: 600,
-      color: "#3c3c3c"
+      // color: "#3c3c3c",
+      color: "#8c8c8c",
+      fontFamily: "Arsenal, Helvetica Neue, Helvetica, sans-serif",
     },
     h1: {
-      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
       color: "#8c8c8c"
     },
     h2: {
-      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
       color: "#8c8c8c"
     },
     h3: {
-      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
       color: "#8c8c8c"
     },
     h4: {
-      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
       color: "#8c8c8c"
     },
     h5: {
-      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
       color: "#8c8c8c"
     },
     h6: {
-      fontFamily: "Courgette, Arsenal, Helvetica Neue, Helvetica, sans-serif",
       color: "#8c8c8c"
     },
   }

@@ -18,7 +18,11 @@ const styles = (theme) => ({
   appBar: {
     // backgroundColor: theme.palette.reaction.white,
     // borderBottom: `solid 1px ${theme.palette.reaction.black05}`,
-    color: theme.palette.reaction.coolGrey500
+    color: theme.palette.reaction.coolGrey500,
+    [theme.breakpoints.up('xl')]: {
+      paddingLeft: theme.spacing.unit * 5,
+      paddingRight: theme.spacing.unit * 5,
+    },
   },
   controls: {
     alignItems: "inherit",
@@ -38,8 +42,10 @@ const styles = (theme) => ({
   logo: {
   },
   myLogo: {
-    width: "69%",
-    marginBottom: "-4px"
+    width: "60%",
+    paddingTop: "10px",
+    paddingBottom: "10px",
+    marginBottom: "-4px",
   }
 });
 
@@ -64,7 +70,7 @@ class Header extends Component {
   handleNavigationToggleClick = () => {
     this.props.uiStore.toggleMenuDrawerOpen();
   };
-
+ // TODO get header image url dynamicaly via envoirmental variable!
   render() {
     const { classes: { appBar, controls, toolbar, title, logo, myLogo }, shop } = this.props;
 

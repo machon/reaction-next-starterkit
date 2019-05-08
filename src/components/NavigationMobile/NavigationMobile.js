@@ -88,12 +88,14 @@ class NavigationMobile extends Component {
 
   renderNavItem = (navItem, index) => {
     if (this.props.filter) {
-      if (navItem.navigationItem.data.classNames.split(' ').includes(this.props.filter)) return <NavigationItemMobile
+      if(navItem.navigationItem.data.classNames) {
+        if (navItem.navigationItem.data.classNames.split(' ').includes(this.props.filter)) return <NavigationItemMobile
         key={index}
         isTopLevel
         navItem={navItem}
         onClick={this.handleNavItemClick}
       />;
+      }
     } else {
       return <NavigationItemMobile
         key={index}

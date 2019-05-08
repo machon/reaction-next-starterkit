@@ -28,7 +28,8 @@ class About extends Component {
           <meta name="about-page" content={shop && shop.description}/>
         </Helmet>
         <Typography variant={'body1'}>
-          <h1>Allgemeine Gesch&auml;ftsbedingungen mit Kundeninformationen</h1>
+          <div style={{marginRight: "8em", marginLeft: "8em"}}>
+            <h1>Allgemeine Gesch&auml;ftsbedingungen mit Kundeninformationen</h1>
 
           <h2>Inhaltsverzeichnis</h2>
           <ol>
@@ -316,6 +317,7 @@ class About extends Component {
 
           <p><b>12.2</b>&thinsp;Der Verk&auml;ufer ist zur Teilnahme an einem Streitbeilegungsverfahren vor einer
             Verbraucherschlichtungsstelle weder verpflichtet noch bereit.</p>
+          </div>
         </Typography>
       </Fragment>
     );

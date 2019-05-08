@@ -12,9 +12,13 @@ import { NavigationItemMobile } from "components/NavigationMobile";
  */
 function renderNavItemDesktop(navItem, index, filter = null) {
   if (filter) {
-    // console.log();
-    if (navItem.navigationItem.data.classNames.split(' ').includes(filter)) return <NavigationItemDesktop key={index}
-                                                                                                          navItem={navItem}/>;
+    // TODO this throws an error if no Navitems are set add exception or another if that checks if any classNames are set
+    if(navItem.navigationItem.data.classNames) {
+      if (navItem.navigationItem.data.classNames.split(' ').includes(filter)) {
+        return <NavigationItemDesktop key={index} navItem={navItem}/>;
+      }
+    }
+
   } else {
     return <NavigationItemDesktop key={index} navItem={navItem}/>;
   }
