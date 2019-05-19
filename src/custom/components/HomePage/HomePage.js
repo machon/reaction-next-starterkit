@@ -68,6 +68,9 @@ const styles = (theme) => ({
   mainAdjustmentDiv: {
     margin: "0 auto",
     [theme.breakpoints.down('md')]: {
+      width: "85%"
+    },
+    [theme.breakpoints.down('sm')]: {
       width: "70%"
     }
   },
@@ -82,21 +85,6 @@ const styles = (theme) => ({
 @withComponents
 @withStyles(styles, { name: 'SkHomePage', withTheme: true })
 class HomePage extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.state = {
-  //     isWaiting: false
-  //   };
-  //
-  // }
-  //
-  // onBtnClick = () => {
-  //   this.setState({ isWaiting: true });
-  //   setTimeout(() => {
-  //     this.setState({ isWaiting: false });
-  //   }, 3000);
-  // };
 
   render() {
     const { classes, components: { ProgressiveImage }, theme, headerImageName, width } = this.props;
@@ -142,12 +130,12 @@ class HomePage extends React.Component {
 
           <Grid item xs={12} className={classes.gridItem}>
             <Typography
-              variant={width === 'sm' || width === 'xs' ? 'h3' : 'h2'}
+              variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
               align="center"
               gutterBottom
             >
-              {/*Kategorien*/}
-              {width}
+              Kategorien
+              {/*{width}*/}
               {/*{os.hostname()}*/}
               {/*{os.networkInterfaces()}*/}
             </Typography>
@@ -163,7 +151,7 @@ class HomePage extends React.Component {
 
           <Grid item xs={12} className={classes.gridItem}>
             <Typography
-              variant={width === 'sm' || width === 'xs' ? 'h3' : 'h2'}
+              variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
               align="center"
               gutterBottom
             >
@@ -181,7 +169,7 @@ class HomePage extends React.Component {
             <div className={classNames(classes.marginGridItem, classes.mobileAdjustmentDiv)}>
               <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "4em" }}>
                 <Typography
-                  variant={width === 'sm' || width === 'xs' ? 'h3' : 'h2'}
+                  variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
                   align="center"
                   gutterBottom
                 >
@@ -201,7 +189,7 @@ class HomePage extends React.Component {
 
             {/*Todo export to own component*/}
             <Typography
-              variant={width === 'sm' || width === 'xs' ? 'h3' : 'h2'}
+              variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
               align="center"
               gutterBottom
               style={{ paddingTop: "20px" }}

@@ -6,6 +6,30 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   overrides: {
+
+    SkProductDetailOption: {
+      optionButton: {
+        backgroundColor: "FFF",
+        "&:focus": {
+          // TODO select a proper color for this
+          outline: "auto 5px #43b227"
+        }
+      },
+    },
+
+    SkVariantItem: {
+      variantButton: {
+        backgroundColor: "FFF",
+        "&:hover": {
+          backgroundColor: "FFF"
+        },
+        "&:focus": {
+          // TODO select a proper color for this
+          outline: "auto 5px #43b227"
+        }
+      }
+    },
+
     SkNavigationItemDesktop: {
       primaryNavItem: {
         color: "#8c8c8c"
@@ -48,13 +72,13 @@ const theme = createMuiTheme({
       main: "#ffd8ff",
       dark: "#cca5bb",
       // TODO contrast color is buggy on text, or background on some Elements
-      contrastText: "#FFFFFF"
+      contrastText: "#595959"
     },
     secondary: {
       light: "#afff8b",
       main: "#7ae55a",
       dark: "#43b227",
-      contrastText: "#000000"
+      contrastText: "#595959"
     },
     background: {
       default: "#ffffff"
