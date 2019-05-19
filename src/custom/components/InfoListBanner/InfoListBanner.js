@@ -22,6 +22,7 @@ const styles = theme => ({
     lineHeight: "40px",
     paddingLeft: "18px",
     marginRight: "2.8%",
+    fontFamily: "Courgette"
   },
   listContainer: {
     width: "80%",

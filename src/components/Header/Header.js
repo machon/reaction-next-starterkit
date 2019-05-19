@@ -13,6 +13,7 @@ import ShopLogo from "@reactioncommerce/components/ShopLogo/v1";
 import Link from "components/Link";
 import MiniCart from "components/MiniCart";
 import NavigationRenderCustom from 'custom/components/custom-render-functions/NavigationRenderCustom';
+import ShopLogoWithData from 'custom/components/ShopLogoWithData'
 
 const styles = (theme) => ({
   appBar: {
@@ -30,8 +31,8 @@ const styles = (theme) => ({
     flex: 1
   },
   title: {
-    color: theme.palette.reaction.reactionBlue,
-    marginRight: theme.spacing.unit,
+    // color: theme.palette.reaction.reactionBlue,
+    // marginRight: theme.spacing.unit,
     // borderBottom: `solid 5px ${theme.palette.reaction.reactionBlue200}`
   },
   toolbar: {
@@ -39,10 +40,15 @@ const styles = (theme) => ({
     display: "flex",
     justifyContent: "space-between"
   },
-  logo: {
+  logoLink: {
+    width: "20vw",
+    [theme.breakpoints.down('md')]: {
+      width: "30vw",
+      marginLeft: "4vw"
+    }
   },
   myLogo: {
-    width: "60%",
+    width: "80%",
     paddingTop: "10px",
     paddingBottom: "10px",
     marginBottom: "-4px",
@@ -72,7 +78,7 @@ class Header extends Component {
   };
  // TODO get header image url dynamicaly via envoirmental variable!
   render() {
-    const { classes: { appBar, controls, toolbar, title, logo, myLogo }, shop } = this.props;
+    const { classes: { appBar, controls, toolbar, title, logoLink, myLogo }, shop, logoUrl } = this.props;
 
     return (
       <AppBar position="static" elevation={0} className={appBar}>
@@ -81,16 +87,23 @@ class Header extends Component {
             <NavigationToggleMobile onClick={this.handleNavigationToggleClick}/>
           </Hidden>
 
-          <div className={controls}><Link route="/">
+          <div className={controls}>
+            <Link route="/"
+                  classes={{
+                    anchor: logoLink
+                  }}
+            >
                 {/*<ShopLogo shopName={shop.name}*/}
                           {/*// classes={{img: myImg}}*/}
                           {/*// shopLogoUrl="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"*/}
                 {/*/>*/}
                 <img
-                  src="http://localhost:4000/static/images/AuS_Logo_ohne_Claim_200px_RGB.png"
+                  src="/static/images/AuS_Logo_ohne_Claim_200px_RGB.png"
                   alt="Logo"
                   className={myLogo}
                 />
+                {/*<ShopLogoWithData />*/}
+
               </Link>
             {/*<Typography className={title} color="inherit" variant="h6">*/}
               {/**/}

@@ -1,4 +1,6 @@
 // Created by Andre Machon 28/01/2019
+const os = require('os');
+const url = require('url');
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -14,7 +16,6 @@ import withCatalogItems from "containers/catalog/withCatalogItems";
 // TODO change this later when component is renamed
 import FeaturedCategoryStepper from 'custom/components/FeaturedCategoryStepper';
 import withWidth from '@material-ui/core/withWidth';
-
 
 const MainCategories = withTagFilter(CategoryTileGrid, 'keywords', 'HomePageCategory');
 // const FeatCategories = withTagFilter(FeaturedCategories, 'keywords', 'featuredCategory');
@@ -55,9 +56,19 @@ const styles = (theme) => ({
     // padding: "10px",
     borderBottom: "7px solid #ffd6ed",
     borderTop: "7px solid #ffd6ed",
-    [theme.breakpoints.down('sm')]: {
-      width: "70%",
-      margin: "auto",
+  },
+
+  mobileAdjustmentDiv: {
+    margin: "0 auto",
+    [theme.breakpoints.down('md')]: {
+      width: "80%"
+    }
+  },
+
+  mainAdjustmentDiv: {
+    margin: "0 auto",
+    [theme.breakpoints.down('md')]: {
+      width: "70%"
     }
   },
 
@@ -88,7 +99,7 @@ class HomePage extends React.Component {
   // };
 
   render() {
-    const { classes, components: { Button, ProgressiveImage }, theme, catalogItems, width } = this.props;
+    const { classes, components: { ProgressiveImage }, theme, headerImageName, width } = this.props;
 
     let numProductsDisplayed = 3;
 
@@ -110,11 +121,9 @@ class HomePage extends React.Component {
         break;
     }
 
+
     return (
       <div>
-        {/*<div className={classes.gridItem}>*/}
-        {/**/}
-        {/*</div>*/}
 
         <Grid container>
 
@@ -122,11 +131,11 @@ class HomePage extends React.Component {
             <ProgressiveImage
               className={classes.headerIMG}
               srcs={{
-                large: "static/images/StartFoto.jpg",
-                medium: "http://localhost:3000/assets/files/Media/jejxGbTZ2XwyKmm6a/medium/StartFoto.png",
-                small: "http://localhost:3000/assets/files/Media/jejxGbTZ2XwyKmm6a/small/StartFoto.png"
+                large: `static/images/${headerImageName}.jpg`,
+                medium: `static/images/${headerImageName}_medium.jpg`,
+                small: `static/images/${headerImageName}_small.png`
               }}
-              presrc="http://localhost:3000/assets/files/Media/jejxGbTZ2XwyKmm6a/medium/StartFoto.png"
+              presrc={`static/images/${headerImageName}_thumbnail.png`}
               alt="HeaderImage"/>
 
           </Grid>
@@ -137,11 +146,16 @@ class HomePage extends React.Component {
               align="center"
               gutterBottom
             >
-              Kategorien
+              {/*Kategorien*/}
+              {width}
+              {/*{os.hostname()}*/}
+              {/*{os.networkInterfaces()}*/}
             </Typography>
             <div className={classNames(classes.marginGridItem)}>
-              <div className={classes.mainCategoryContainer}>
-                <MainCategories/>
+              <div className={classNames(classes.mainCategoryContainer, classes.mobileAdjustmentDiv)}>
+                <div className={classes.mainAdjustmentDiv}>
+                  <MainCategories/>
+                </div>
               </div>
             </div>
           </Grid>
@@ -155,7 +169,7 @@ class HomePage extends React.Component {
             >
               Specials
             </Typography>
-            <div className={classes.marginGridItem}>
+            <div className={classNames(classes.marginGridItem, classes.mobileAdjustmentDiv)}>
               <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "4em" }}>
                 <FeaturedCategories/>
               </div>
@@ -164,10 +178,10 @@ class HomePage extends React.Component {
 
           {/*Hier featured Produkt Slider*/}
           <Grid item xs={12} className={classes.gridItem}>
-            <div className={classes.marginGridItem}>
+            <div className={classNames(classes.marginGridItem, classes.mobileAdjustmentDiv)}>
               <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "4em" }}>
                 <Typography
-                  variant="h2"
+                  variant={width === 'sm' || width === 'xs' ? 'h3' : 'h2'}
                   align="center"
                   gutterBottom
                 >
@@ -182,12 +196,8 @@ class HomePage extends React.Component {
 
           </Grid>
 
-          {/*About Anton & Sophie Div*/}
-          {/*<Grid item xs={12} className={classNames(classes.gridItem, classes.marginGridItem)} style={{ background: theme.palette.primary.light }} >*/}
           <Grid item xs={12} className={classNames(classes.marginGridItem)}
                 style={{ background: theme.palette.primary.main }}>
-
-            {/*<div style={{ background: theme.palette.primary.light }}>*/}
 
             {/*Todo export to own component*/}
             <Typography
@@ -201,7 +211,7 @@ class HomePage extends React.Component {
             {/*♡*/}
             <Grid container spacing={16}>
 
-              <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <Grid item xs={12} md={4} className={classNames(classes.pictureCenterDiv, classes.mobileAdjustmentDiv)}>
                 <div style={{ textAlign: "center" }}>
                   <Typography variant="h5" gutterBottom>Erstklassig</Typography>
                   <Typography variant="body2">
@@ -209,14 +219,16 @@ class HomePage extends React.Component {
                     Hochwertige Stoffe, perfekte Verarbeitung und hohe Standards sind unser Maßstab.</Typography>
                   <Typography variant="body2" gutterBottom>❤ Für ein gutes Gefühl - für uns - für dich - für dein Kind
                     ❤</Typography>
-                  <img
+                  <div style={{width: "30%", margin: "0 auto"}}>
+                    <img
                     src="static/images/AuS_owl_200px_RGB.png"
-                    style={{ height: "55%" }}
+                    style={{ width: "60%" }}
                     alt="fish"/>
+                  </div>
                 </div>
               </Grid>
 
-              <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
+              <Grid item xs={12} md={4} className={classNames(classes.pictureCenterDiv, classes.mobileAdjustmentDiv)} >
                 <div style={{ textAlign: "center" }}>
                   <Typography variant="h5" gutterBottom>Alltagstauglich</Typography>
                   <Typography variant="body2">
@@ -224,28 +236,30 @@ class HomePage extends React.Component {
                     zu vereinfachen. Jeder Artikel wird mit viel Herzblut & Liebe designed / ausgewählt
                     und daraufhin ausführlich getestet.</Typography>
                   <Typography variant="body2" gutterBottom>❤ Von Müttern für dein Kind ❤</Typography>
-                  <img
-                    style={{height: "30%"}}
-                    // src={`/static/images/AntonUndSophie_Siegel_weiss.png`}
+                  <div style={{width: "30%", margin: "0 auto"}}>
+                    <img
+                    src={`static/images/AntonUndSophie_Siegel_weiss.png`}
+                    style={{width: "85%"}}
                     alt="siegel"/>
+                  </div>
                 </div>
               </Grid>
 
-              <Grid item xs={12} md={4} className={classes.pictureCenterDiv}>
-                <div style={{ textAlign: "center" }}>
+              <Grid item xs={12} md={4} className={classNames(classes.pictureCenterDiv, classes.mobileAdjustmentDiv)}>
+                <div style={{ textAlign: "center" }} >
                   <Typography variant="h5" gutterBottom>Individuell</Typography>
                   <Typography variant="body2">
                     Jedes Kind ist ein ganz besonderes Unikat. Und dieses Gefühl möchten wir mit unserem
                     Personalisierungs-Service in die Welt transportieren,
                   </Typography>
-                  <Typography variant="body2" style={{ marginBottom: "2.5em" }}>❤ denn Dein Kind ist einzigartig auf
-                    dieser Welt!
-                    ❤</Typography>
-                  <img
+                  <Typography variant="body2" style={{ marginBottom: "2.4em" }}>❤ denn Dein Kind ist einzigartig auf
+                    dieser Welt! ❤</Typography>
+                  <div style={{width: "30%", margin: "0 auto"}}>
+                    <img
                     src={`/static/images/AuS_fish_200px_RGB.png`}
-                    style={{ height: "45%" }}
-                    // src="static/images/AuS_owl_200px_RGB.png"
+                    style={{ width: "85%" }}
                     alt="eule"/>
+                  </div>
                 </div>
               </Grid>
 

@@ -13,6 +13,8 @@ import { autoPlay, virtualize } from 'react-swipeable-views-utils';
 import ImageTile from 'custom/components/ImageTile';
 import Link from "components/Link";
 import Icon from '@material-ui/core/Icon';
+import { ChevronLeft, ChevronRight} from '@material-ui/icons'
+
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import withWidth from '@material-ui/core/withWidth';
@@ -137,12 +139,12 @@ class FeaturedCategoryStepper extends React.Component {
           nextButton={
             <Button size="medium" onClick={this.handleNext}>
 
-              {theme.direction === 'rtl' ? <Icon>chevron_left</Icon> : <Icon>chevron_right</Icon>}
+              {theme.direction === 'rtl' ? <ChevronLeft/> : <ChevronRight/>}
             </Button>
           }
           backButton={
-            <Button size="large" onClick={this.handleBack}>
-              {theme.direction === 'rtl' ? <Icon>chevron_right</Icon> : <Icon>chevron_left</Icon>}
+            <Button size="small" onClick={this.handleBack}>
+              {theme.direction === 'rtl' ?  <ChevronRight/>: <ChevronLeft/>}
 
             </Button>
           }

@@ -13,7 +13,7 @@ import { NavigationItemMobile } from "components/NavigationMobile";
 function renderNavItemDesktop(navItem, index, filter = null) {
   if (filter) {
     // TODO this throws an error if no Navitems are set add exception or another if that checks if any classNames are set
-    if(navItem.navigationItem.data.classNames) {
+    if (navItem.navigationItem.data.classNames) {
       if (navItem.navigationItem.data.classNames.split(' ').includes(filter)) {
         return <NavigationItemDesktop key={index} navItem={navItem}/>;
       }
@@ -34,7 +34,7 @@ export default {
     const { navItems, filter } = props;
 
     if (navItems && navItems.items) {
-      return <nav>{navItems.items.map(
+      return <nav style={{textAlign: "center"}}>{navItems.items.map(
         (navItem, index) => renderNavItemDesktop(navItem, index, filter)
       )}</nav>;
     }

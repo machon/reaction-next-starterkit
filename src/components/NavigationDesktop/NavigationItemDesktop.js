@@ -38,7 +38,14 @@ const styles = (theme) => ({
     fontSize: "12px"
   },
   primaryNavItem: {
-    textTransform: "capitalize"
+    textTransform: "capitalize",
+    letterSpacing: "1px",
+    marginRight: "10px",
+    [theme.breakpoints.up('lg')]: {
+      fontSize: "21px",
+      marginRight: "15px",
+
+    }
   }
 });
 

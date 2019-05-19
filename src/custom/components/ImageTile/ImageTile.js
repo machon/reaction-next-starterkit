@@ -9,6 +9,9 @@ const styles = (theme) => ({
   overflowDiv: {
     overflow: "hidden",
     width: "100%",
+    // [theme.breakpoints.down('md')]: {
+    //   width: "75%"
+    // },
     margin: "0 auto",
     position: "relative"
   },
