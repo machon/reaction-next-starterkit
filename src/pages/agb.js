@@ -28,7 +28,7 @@ class About extends Component {
           <meta name="about-page" content={shop && shop.description}/>
         </Helmet>
         <Typography variant={'body1'}>
-          <div style={{marginRight: "8em", marginLeft: "8em"}}>
+          <div style={{width: "95%", margin: "0 auto"}}>
             <h1>Allgemeine Gesch&auml;ftsbedingungen mit Kundeninformationen</h1>
 
           <h2>Inhaltsverzeichnis</h2>

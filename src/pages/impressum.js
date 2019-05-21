@@ -27,8 +27,8 @@ class Impressum extends Component {
           <title>{shop && shop.name}</title>
           <meta name="about-page" content={shop && shop.description}/>
         </Helmet>
-        <Typography>
-          <div className="entry" style={{marginRight: "8em", marginLeft: "8em"}}>
+        <Typography variant={'body1'}>
+          <div className="entry" style={{width: "95%", margin: "0 auto"}}>
             <header className="entry-header">
               <h1 className="entry-title">
                 Impressum </h1>
@@ -41,9 +41,11 @@ class Impressum extends Component {
               <p>Tel.: 0049 157 83054821
                 E-Mail: kontakt@anton-und-sophie.de</p>
               <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE294202460 </p>
-              <p>Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr"
-                                                                            target="_blank"
-                                                                            rel="noopener">https://ec.europa.eu/consumers/odr</a>
+              <p>Plattform der EU-Kommission zur Online-Streitbeilegung:
+                <a href="https://ec.europa.eu/consumers/odr"
+                   target="_blank"
+                   rel="noopener">
+                https://ec.europa.eu/consumers/odr</a>
               </p>
               <p>Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder
                 verpflichtet noch bereit.</p>

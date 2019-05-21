@@ -28,7 +28,7 @@ class Datenschutz extends Component {
           <meta name="about-page" content={shop && shop.description}/>
         </Helmet>
         <Typography variant='body1'>
-          <div style={{marginRight: "8em", marginLeft: "8em"}}>
+          <div style={{width: "95%", margin: "0 auto"}}>
             <h1>Datenschutzerkl&auml;rung</h1>
 
           <h2>1) Information &uuml;ber die Erhebung personenbezogener Daten und Kontaktdaten des Verantwortlichen</h2>

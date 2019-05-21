@@ -28,7 +28,7 @@ class Widerruf extends Component {
           <meta name="about-page" content={shop && shop.description}/>
         </Helmet>
         <Typography variant={'body1'}>
-          <div style={{marginRight: "8em", marginLeft: "8em"}}>
+          <div style={{width: "95%", margin: "0 auto"}}>
             <h1>Widerrufsbelehrung &amp; Widerrufsformular</h1>
 
           <p>Verbrauchern steht ein Widerrufsrecht nach folgender Ma&szlig;gabe zu, wobei Verbraucher jede
