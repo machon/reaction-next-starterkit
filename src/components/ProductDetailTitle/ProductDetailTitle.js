@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import withWidth from '@material-ui/core/withWidth';
+
 
 /**
  * Product detail title and pageTitle (subtitle)
@@ -25,18 +27,19 @@ class ProductDetailTitle extends Component {
     variant: PropTypes.string
   }
   render() {
-    const { pageTitle, title, variant = "h3" } = this.props;
+    const { pageTitle, title, width } = this.props;
 
     // Render nothing if neither the title nor pageTitle exists
     if (!title && !pageTitle) return null;
 
     return (
       <Grid item sm={12}>
-        {title && <Typography color="textSecondary" gutterBottom={true} variant={variant}>{title}</Typography>}
+        {title && <Typography color="textSecondary" gutterBottom={true}
+                              variant={width === 'sm' || width === 'xs' ? 'h4' : 'h3'}>{title}</Typography>}
         {pageTitle && <Typography color="primary" component="h2" variant="h6">{pageTitle}</Typography>}
       </Grid>
     );
   }
 }
 
-export default ProductDetailTitle;
+export default withWidth()(ProductDetailTitle)

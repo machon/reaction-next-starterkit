@@ -48,10 +48,10 @@ const styles = (theme) => ({
     }
   },
   myLogo: {
-    width: "80%",
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    marginBottom: "-4px",
+    width: "85%",
+    // paddingTop: "10px",
+    // paddingBottom: "10px",
+    // marginBottom: "-4px",
   }
 });
 
@@ -98,7 +98,9 @@ class Header extends Component {
                           {/*// shopLogoUrl="http://localhost:3000/assets/files/Media/ZBabytZwKrenABath/medium/Anton und Sophie color.png"*/}
                 {/*/>*/}
                 <img
-                  src="/static/images/AuS_Logo_ohne_Claim_200px_RGB.png"
+                  // src="/static/images/AuS_Logo_ohne_Claim_200px_RGB.png"
+                  src="/static/images/AuS_Logo_Weiss_AuS-Logo_Schein_100_01.png"
+                  // src="/static/images/AuS_Logo_Weiss_AuS-Logo_Schlagschatten_75_050505.png"
                   alt="Logo"
                   className={myLogo}
                 />

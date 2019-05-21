@@ -7,7 +7,7 @@ import withTag from "containers/tags/withTag";
 import Breadcrumbs from "components/Breadcrumbs";
 import ProductGrid from "components/ProductGrid";
 import ProductGridEmptyMessage from "components/ProductGrid/ProductGridEmptyMessage";
-import ProductGridHero from "components/ProductGridHero";
+import ProductGridHero from "custom/components/ProductGridHero";
 import ProductGridTitle from "components/ProductGridTitle";
 import SharedPropTypes from "lib/utils/SharedPropTypes";
 import trackProductListViewed from "lib/tracking/trackProductListViewed";
@@ -89,6 +89,7 @@ export default class TagGridPage extends Component {
     this.props.uiStore.setSortBy(sortBy);
   };
 
+  // TODO copy this method for working with tag metafields in own custom code
   renderHeaderMetatags(metafields) {
     const { shop } = this.props;
 
@@ -146,7 +147,8 @@ export default class TagGridPage extends Component {
               [{ name: "description", content: shop && shop.description }]
           }
         />
-        <Breadcrumbs isTagGrid tagId={routingStore.tagId} />
+        <div style={{width: "95%", margin: "0 auto"}}>
+          <Breadcrumbs isTagGrid tagId={routingStore.tagId} />
         {
           tag && tag.displayTitle && <ProductGridTitle displayTitle={tag.displayTitle} />
         }
@@ -162,6 +164,7 @@ export default class TagGridPage extends Component {
           setSortBy={this.setSortBy}
           sortBy={sortBy}
         />
+        </div>
       </Fragment>
     );
   }

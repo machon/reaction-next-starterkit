@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
+import parse from 'html-react-parser';
 
 /**
  * Product detail description field
@@ -20,7 +21,7 @@ class ProductDetailDescription extends Component {
     if (!children) return null;
 
     return (
-      <Typography component="div" {...props}>{children}</Typography>
+      <Typography component="div" {...props}>{parse(children)}</Typography>
     );
   }
 }

@@ -128,7 +128,7 @@ class NavigationItemDesktop extends Component {
         <Popover
           classes={{ paper: classes.popover }}
           anchorReference="anchorPosition"
-          anchorPosition={{ left: 0, top: 64 }}
+          anchorPosition={{ left: 0, top: 160 }}
           elevation={1}
           onClose={this.onClose}
           open={this.state.isSubNavOpen}
