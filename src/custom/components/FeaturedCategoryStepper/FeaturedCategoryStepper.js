@@ -98,7 +98,7 @@ class FeaturedCategoryStepper extends React.Component {
     }
 
     return (
-      <Grid container key={key}>
+      <Grid container key={key} spacing={16}>
         {products.map(product => (
           <Grid item xs={6} sm={4} md={3} lg={2} style={{ margin: "auto" }}>
             <CatalogGridItem

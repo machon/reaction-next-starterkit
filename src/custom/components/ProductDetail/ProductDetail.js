@@ -44,6 +44,23 @@ const styles = (theme) => ({
       paddingLeft: theme.spacing.unit * 2,
       paddingRight: theme.spacing.unit * 2,
     }
+  },
+
+  descriptionSpacing: {
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing.unit * 5,
+      paddingRight: theme.spacing.unit * 5,
+      marginBottom: theme.spacing.unit * 5,
+      paddingTop: theme.spacing.unit * 2,
+      marginTop: theme.spacing.unit * 4,
+      borderBottom: "7px solid #ffd6ed",
+      borderTop: "7px solid #ffd6ed",
+    },
+
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: theme.spacing.unit * 2,
+      paddingRight: theme.spacing.unit * 2,
+    }
   }
 });
 
@@ -322,13 +339,13 @@ class ProductDetail extends Component {
           <Grid item className={classes.breadcrumbGrid} xs={12}>
             <Breadcrumbs isPDP tagId={routingStore.tagId} product={product}/>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} lg={5}>
             <div className={classes.section}>
               <MediaGallery mediaItems={pdpMediaItems}/>
             </div>
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} lg={6}>
             <ProductDetailTitle pageTitle={product.pageTitle} title={product.title}/>
             <div className={classes.info}>
               <ProductDetailVendor>{product.vendor}</ProductDetailVendor>
@@ -336,9 +353,6 @@ class ProductDetail extends Component {
             <div className={classes.info}>
               <ProductDetailPrice className={classes.bottomMargin} compareAtPrice={compareAtDisplayPrice}
                                   price={productPrice.displayPrice}/>
-            </div>
-            <div className={classes.info}>
-              <ProductDetailDescription>{product.description}</ProductDetailDescription>
             </div>
             <VariantList
               onSelectOption={this.handleSelectOption}
@@ -355,8 +369,21 @@ class ProductDetail extends Component {
               selectedVariantId={pdpSelectedVariantId}
               variants={product.variants}
             />
+            {product.description.length < 1000 &&
+              <div className={classes.info} style={{marginTop: "2vh"}}>
+                <ProductDetailDescription>{product.description}</ProductDetailDescription>
+              </div>
+            }
           </Grid>
         </Grid>
+        {product.description.length > 1000 &&
+          <div className={classNames(classes.info, classes.spacing)} >
+              <div>
+                <ProductDetailDescription className={classes.descriptionSpacing}>{product.description}</ProductDetailDescription>
+              </div>
+        </div>
+        }
+
       </Fragment>
     );
   }

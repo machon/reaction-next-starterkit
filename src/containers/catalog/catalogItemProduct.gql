@@ -4,6 +4,7 @@ query catalogItemProductQuery($slugOrId: String!) {
       _id
       productId
       title
+      pageTitle
       slug
       description
       vendor

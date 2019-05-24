@@ -99,7 +99,7 @@ class Header extends Component {
                 {/*/>*/}
                 <img
                   // src="/static/images/AuS_Logo_ohne_Claim_200px_RGB.png"
-                  src="/static/images/AuS_Logo_Weiss_AuS-Logo_Schein_100_01.png"
+                  src="/static/images/AuS_Logo_Weiss_AuS-Logo_owl_fish_et_white.png"
                   // src="/static/images/AuS_Logo_Weiss_AuS-Logo_Schlagschatten_75_050505.png"
                   alt="Logo"
                   className={myLogo}

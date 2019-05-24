@@ -1,6 +1,4 @@
 // Created by Andre Machon 28/01/2019
-const os = require('os');
-const url = require('url');
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -68,10 +66,10 @@ const styles = (theme) => ({
   mainAdjustmentDiv: {
     margin: "0 auto",
     [theme.breakpoints.down('md')]: {
-      width: "85%"
+      width: "80%"
     },
     [theme.breakpoints.down('sm')]: {
-      width: "70%"
+      width: "60%"
     }
   },
 
@@ -134,7 +132,7 @@ class HomePage extends React.Component {
               align="center"
               gutterBottom
             >
-              Kategorien
+              Jetzt Entdecken
               {/*{width}*/}
               {/*{os.hostname()}*/}
               {/*{os.networkInterfaces()}*/}
@@ -173,7 +171,7 @@ class HomePage extends React.Component {
                   align="center"
                   gutterBottom
                 >
-                  Deine Lieblinge
+                  Lieblingsstücke
                 </Typography>
                 {/*TODO change this later only preview*/}
                 <FeaturedCategoryStepper

@@ -8,7 +8,9 @@ import Link from "components/Link";
 const styles = (theme) => ({
   overflowDiv: {
     overflow: "hidden",
-    width: "100%",
+    [theme.breakpoints.up('lg')]: {
+      width: "97%",
+    },
     // [theme.breakpoints.down('md')]: {
     //   width: "75%"
     // },
@@ -17,7 +19,6 @@ const styles = (theme) => ({
   },
   overflowImg: {
     width: "100%",
-    height: "auto",
     transition: "all,.6s",
     verticalAlign: "middle",
     willChange: "transform",

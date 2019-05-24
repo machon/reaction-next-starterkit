@@ -28,18 +28,37 @@ export default {
   },
 
   rui_components: {
+    CatalogGridItemProductInfo: {
+      fontSize: "5px",
+      color: "red"
+    },
     CatalogGridItemProductTitle: {
+      headingTextBold: {
+        color: "green",
+        fontSize: "2px"
+      },
       color: "red",
+      fontSize: "100px",
+
+    },
+    CatalogGridItemProductTitleHeadingTextBold: {
+      fontSize: "3px"
     },
     Button: {
       backgroundColor_default: "#5acc25",
-      backgroundColor_default_active: "#129a00",
-      backgroundColor_default_hover: "#91ff5c",
+      backgroundColor_default_active: "#37aa28",
+      backgroundColor_default_hover: "#60e123",
       borderColor_default: "#5acc25",
-      borderColor_default_active: "#129a00",
-      borderColor_default_hover: "#91ff5c",
-      foregroundColor_default_hover : "#3c3c3c",
-      
+      borderColor_default_active: "#37aa28",
+      borderColor_default_hover: "#60e123",
+
+      backgroundColor_important: "#43b227",
+      backgroundColor_important_active: "#43b227",
+      backgroundColor_important_hover: "#61ac4d",
+      borderColor_important: "#43b227",
+      borderColor_important_active: "#43b227",
+      borderColor_important_hover: "#61ac4d",
+
       backgroundColor_secondary: "#ff67a9",
       backgroundColor_secondary_active: "#c8317a",
       backgroundColor_secondary_hover: "#ff9adb",
