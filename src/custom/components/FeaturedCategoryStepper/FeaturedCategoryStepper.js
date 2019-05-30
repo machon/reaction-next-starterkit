@@ -47,7 +47,8 @@ const styles = (theme) => ({
     left: 0, right: 0,
     marginLeft: "auto",
     marginRight: "auto"
-  }
+  },
+
 });
 
 @withShop
@@ -98,10 +99,9 @@ class FeaturedCategoryStepper extends React.Component {
     }
 
     return (
-      <div style={{ padding: 20 }}>
         <Grid container key={key} spacing={16}>
         {products.map(product => (
-          <Grid item xs={6} sm={4} md={3} lg={2} style={{ margin: "auto" }}>
+          <Grid item xs={12} sm={6} md={4} lg={3} xl={2} style={{ margin: "auto" }}>
             <CatalogGridItem
               product={product.product}
               currencyCode="EUR"
@@ -109,8 +109,6 @@ class FeaturedCategoryStepper extends React.Component {
           </Grid>
         ))}
       </Grid>
-      </div>
-
     );
 
   };
@@ -129,6 +127,9 @@ class FeaturedCategoryStepper extends React.Component {
           onChangeIndex={this.handleStepChange}
           enableMouseEvents
           slideRenderer={this.renderProductSlide}
+          classes={{
+            slide: classes.overflow
+          }}
         >
 
         </VirtualizeSwipeableViews>

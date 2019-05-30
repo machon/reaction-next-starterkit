@@ -20,7 +20,7 @@ export default {
       color: "#8c8c8c"
     },
     headingTextBold: {
-      color: "#8c8c8c"
+      color: "#8c8c8c",
     },
     // caption: {
     //   color: "#8c8c8c"
@@ -28,22 +28,7 @@ export default {
   },
 
   rui_components: {
-    CatalogGridItemProductInfo: {
-      fontSize: "5px",
-      color: "red"
-    },
-    CatalogGridItemProductTitle: {
-      headingTextBold: {
-        color: "green",
-        fontSize: "2px"
-      },
-      color: "red",
-      fontSize: "100px",
 
-    },
-    CatalogGridItemProductTitleHeadingTextBold: {
-      fontSize: "3px"
-    },
     Button: {
       backgroundColor_default: "#5acc25",
       backgroundColor_default_active: "#37aa28",

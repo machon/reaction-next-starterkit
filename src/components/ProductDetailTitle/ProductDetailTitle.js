@@ -8,6 +8,8 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = (theme) => ({
   pageTitle: {
     color: theme.palette.secondary.dark,
+    // color: "#96D702",
+
   }
 });
 

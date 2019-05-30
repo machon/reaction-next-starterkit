@@ -23,7 +23,7 @@ const backendurl = `${canonicalurl}:3000/`;
 
 const styles = (theme) => ({
   gridItem: {
-    marginBottom: "4em",
+    marginBottom: "5vh",
   },
 
   primaryLightColor: {
@@ -88,19 +88,20 @@ class HomePage extends React.Component {
     const { classes, components: { ProgressiveImage }, theme, headerImageName, width } = this.props;
 
     let numProductsDisplayed = 3;
+    let headerSize = 'h3';
 
     switch (width) {
       case 'xs':
-        numProductsDisplayed = 2;
+        numProductsDisplayed = 1;
         break;
       case 'sm':
-        numProductsDisplayed = 3;
+        numProductsDisplayed = 2;
         break;
       case 'md':
-        numProductsDisplayed = 4;
+        numProductsDisplayed = 3;
         break;
       case 'lg':
-        numProductsDisplayed = 5;
+        numProductsDisplayed = 4;
         break;
       case 'xl':
         numProductsDisplayed = 5;
@@ -127,19 +128,20 @@ class HomePage extends React.Component {
           </Grid>
 
           <Grid item xs={12} className={classes.gridItem}>
-            <Typography
-              variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
+            <div className={classNames(classes.marginGridItem)}>
+              <div className={classNames(classes.mainCategoryContainer, classes.mobileAdjustmentDiv)}>
+                <div className={classes.mainAdjustmentDiv}>
+                  <Typography
+              variant={width === 'lg' || width === 'xl' || width === 'md' ? 'h3' : 'h4'}
               align="center"
               gutterBottom
+              style={{marginTop: "4vh"}}
             >
-              Jetzt Entdecken
+              Jetzt entdecken
               {/*{width}*/}
               {/*{os.hostname()}*/}
               {/*{os.networkInterfaces()}*/}
             </Typography>
-            <div className={classNames(classes.marginGridItem)}>
-              <div className={classNames(classes.mainCategoryContainer, classes.mobileAdjustmentDiv)}>
-                <div className={classes.mainAdjustmentDiv}>
                   <MainCategories/>
                 </div>
               </div>
@@ -149,14 +151,14 @@ class HomePage extends React.Component {
 
           <Grid item xs={12} className={classes.gridItem}>
             <Typography
-              variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
+              variant={width === 'lg' || width === 'xl' || width === 'md' ? 'h3' : 'h4'}
               align="center"
               gutterBottom
             >
               Specials
             </Typography>
             <div className={classNames(classes.marginGridItem, classes.mobileAdjustmentDiv)}>
-              <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "4em" }}>
+              <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "5px" }}>
                 <FeaturedCategories/>
               </div>
             </div>
@@ -165,15 +167,16 @@ class HomePage extends React.Component {
           {/*Hier featured Produkt Slider*/}
           <Grid item xs={12} className={classes.gridItem}>
             <div className={classNames(classes.marginGridItem, classes.mobileAdjustmentDiv)}>
-              <div style={{ borderBottom: "7px solid #ffd6ed", paddingBottom: "4em" }}>
+              <div style={{
+                borderBottom: "7px solid #ffd6ed", paddingBottom: "5vh"}}>
                 <Typography
-                  variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
+                  variant={width === 'lg' || width === 'xl' || width === 'md' ? 'h3' : 'h4'}
                   align="center"
                   gutterBottom
                 >
                   Lieblingsstücke
                 </Typography>
-                {/*TODO change this later only preview*/}
+                {/*TODO name of the component to something more generic*/}
                 <FeaturedCategoryStepper
                   numProductsDisplayed={numProductsDisplayed}
                 />
@@ -186,17 +189,7 @@ class HomePage extends React.Component {
                 style={{ background: theme.palette.primary.main }}>
 
             {/*Todo export to own component*/}
-            <Typography
-              variant={width === 'lg' || width === 'xl' ? 'h2' : 'h3'}
-              align="center"
-              gutterBottom
-              style={{ paddingTop: "20px" }}
-            >
-              Über Uns
-            </Typography>
-            {/*♡*/}
-            <Grid container spacing={16}>
-
+            <Grid container spacing={16} style={{marginBottom: "10px", paddingTop: "20px"}}>
               <Grid item xs={12} md={4} className={classNames(classes.pictureCenterDiv, classes.mobileAdjustmentDiv)}>
                 <div style={{ textAlign: "center" }}>
                   <Typography variant="h5" gutterBottom>Erstklassig</Typography>
@@ -208,7 +201,7 @@ class HomePage extends React.Component {
                   <div style={{width: "30%", margin: "0 auto"}}>
                     <img
                     src="static/images/AuS_owl_200px_RGB.png"
-                    style={{ width: "60%" }}
+                    style={{ width: "63%" }}
                     alt="fish"/>
                   </div>
                 </div>
@@ -225,7 +218,7 @@ class HomePage extends React.Component {
                   <div style={{width: "30%", margin: "0 auto"}}>
                     <img
                     src={`static/images/AntonUndSophie_Siegel_weiss.png`}
-                    style={{width: "85%"}}
+                    style={{width: "88%"}}
                     alt="siegel"/>
                   </div>
                 </div>
@@ -243,7 +236,7 @@ class HomePage extends React.Component {
                   <div style={{width: "30%", margin: "0 auto"}}>
                     <img
                     src={`/static/images/AuS_fish_200px_RGB.png`}
-                    style={{ width: "85%" }}
+                    style={{ width: "88%" }}
                     alt="eule"/>
                   </div>
                 </div>

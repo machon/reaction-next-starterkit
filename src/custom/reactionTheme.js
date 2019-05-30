@@ -6,7 +6,9 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   overrides: {
-
+    slide: {
+      overflow: "hidden"
+    },
 
     SkProductDetailOption: {
       optionButton: {
@@ -63,7 +65,7 @@ const theme = createMuiTheme({
 
   layout: {
     // "1440px"
-    mainContentMaxWidth: "1920px",
+    // mainContentMaxWidth: "1920px",
     mainLoginMaxWidth: "1024px"
   },
   palette: {

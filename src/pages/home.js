@@ -26,6 +26,11 @@ class Home extends Component {
         <Helmet>
           <title>{shop && shop.name}</title>
           <meta name="description" content={shop && shop.description} />
+          <style type="text/css">{`
+            div.react-swipeable-view-container > div {
+              overflow: hidden !important;
+            }
+          `}</style>
         </Helmet>
         <HomePage headerImageName="StartFoto"/>
       </Fragment>
