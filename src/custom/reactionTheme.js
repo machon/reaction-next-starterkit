@@ -10,6 +10,15 @@ const theme = createMuiTheme({
       overflow: "hidden"
     },
 
+    SkProductDetailAddToCart: {
+      addToCartButton: {
+        "&:focus": {
+          // TODO select a proper color for this
+          outline: "auto 5px #43b227"
+        }
+      },
+    },
+
     SkProductDetailOption: {
       optionButton: {
         backgroundColor: "FFF",

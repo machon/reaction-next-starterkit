@@ -51,6 +51,15 @@ class HTMLDocument extends Document {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: pageContext ? pageContext.sheetsRegistry.toString() : "" }}
           />
+          <style type="text/css">{`           
+            img:focus {
+              outline: none
+            }
+            
+            a:focus {
+              outline: none
+            }
+          `}</style>
           {flush() || null}
         </Fragment>
       ),
@@ -63,8 +72,6 @@ class HTMLDocument extends Document {
     const htmlAttrs = helmet.htmlAttributes.toComponent();
     const links = [
       { rel: "canonical", href: publicRuntimeConfig.canonicalUrl },
-      // { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" },
-      // { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Arsenal:400,700|Courgette|Mallanna&amp;subset=latin-ext" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Arsenal:400,700|Courgette|&amp;subset=latin-ext" },
       ...favicons
     ];
@@ -107,6 +114,7 @@ class HTMLDocument extends Document {
         {helmet.script.toComponent()}
         {helmet.noscript.toComponent()}
         {styledComponentsStyleTags}
+
       </Head>
       <body>
         <Main />

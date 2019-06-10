@@ -30,6 +30,8 @@ class Home extends Component {
             div.react-swipeable-view-container > div {
               overflow: hidden !important;
             }
+            
+            
           `}</style>
         </Helmet>
         <HomePage headerImageName="StartFoto"/>
